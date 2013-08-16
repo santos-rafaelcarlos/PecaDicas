@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDicas.Contratos", "PecaDicas.Contratos\PecaDicas.Contratos.csproj", "{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDicas.Services", "PecaDicas.Services\PecaDicas.Services.csproj", "{6189EA77-CE6A-40CA-841B-0B290560B433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDicas.Nhibernate", "PecaDicas.Nhibernate\PecaDicas.Nhibernate.csproj", "{113F5E0C-2A2B-4C62-8A6E-ADB6DD2AB8A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6189EA77-CE6A-40CA-841B-0B290560B433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6189EA77-CE6A-40CA-841B-0B290560B433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6189EA77-CE6A-40CA-841B-0B290560B433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6189EA77-CE6A-40CA-841B-0B290560B433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113F5E0C-2A2B-4C62-8A6E-ADB6DD2AB8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113F5E0C-2A2B-4C62-8A6E-ADB6DD2AB8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113F5E0C-2A2B-4C62-8A6E-ADB6DD2AB8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113F5E0C-2A2B-4C62-8A6E-ADB6DD2AB8A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
