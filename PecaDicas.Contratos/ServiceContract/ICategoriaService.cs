@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using PecaDicas.Contratos.Common;
 
 namespace PecaDicas.Contratos
 {
     [ServiceContract]
-    public interface ICategoriaService : IServicoBanco<Categoria>
+    public interface ICategoriaService
     {
+        [OperationContract]
+        [FaultContract(typeof(DetalhamentoFalha))]
+        void Inserir(Categoria item);
+
+        [OperationContract]
+        [FaultContract(typeof(DetalhamentoFalha))]
+        void Deletar(Categoria item);
+
+        [OperationContract]
+        [FaultContract(typeof(DetalhamentoFalha))]
+        void Alterar(Categoria item);
+
     }
 }

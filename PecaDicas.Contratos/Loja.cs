@@ -8,14 +8,18 @@ using PecaDicas.Contratos.Common;
 namespace PecaDicas.Contratos
 {
     [DataContract]
-    public class Produto: IDValuePair
-    {       
+    public class Loja : IDValuePair
+    {
         [DataMember]
-        public virtual Guid CategoriaID { get; set; }
+        public virtual String NomeUsuario { get; set; }
+        
         [DataMember]
-        public virtual Guid ModeloID { get; set; }
-        [DataMember]
-        public virtual Guid LojaID { get; set; }
+        public virtual String Senha { get; set; }
 
+        [DataMember]
+        public virtual String Email { get; set; }
+
+        [DataMember]
+        public virtual String Endereco { get; set; }
     }
 }

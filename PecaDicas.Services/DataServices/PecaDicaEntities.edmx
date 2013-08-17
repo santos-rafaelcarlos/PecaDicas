@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pecaDicaBDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="pecaDicaBDModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="pecaDicaBDModel.Store.Categoria" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Loja" EntityType="pecaDicaBDModel.Store.Loja" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Marca" EntityType="pecaDicaBDModel.Store.Marca" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modelo" EntityType="pecaDicaBDModel.Store.Modelo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Produto" EntityType="pecaDicaBDModel.Store.Produto" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Modelo_Marca" Association="pecaDicaBDModel.Store.FK_Modelo_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produto_Categoria" Association="pecaDicaBDModel.Store.FK_Produto_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produto_Loja" Association="pecaDicaBDModel.Store.FK_Produto_Loja">
+            <End Role="Loja" EntitySet="Loja" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produto_Modelo" Association="pecaDicaBDModel.Store.FK_Produto_Modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Loja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NomeUsuario" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Senha" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Endereco" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ano" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Modelo_Marca">
+          <End Role="Marca" Type="pecaDicaBDModel.Store.Marca" Multiplicity="1" />
+          <End Role="Modelo" Type="pecaDicaBDModel.Store.Modelo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produto_Categoria">
+          <End Role="Categoria" Type="pecaDicaBDModel.Store.Categoria" Multiplicity="1" />
+          <End Role="Produto" Type="pecaDicaBDModel.Store.Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produto_Loja">
+          <End Role="Loja" Type="pecaDicaBDModel.Store.Loja" Multiplicity="1" />
+          <End Role="Produto" Type="pecaDicaBDModel.Store.Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Loja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produto_Modelo">
+          <End Role="Modelo" Type="pecaDicaBDModel.Store.Modelo" Multiplicity="1" />
+          <End Role="Produto" Type="pecaDicaBDModel.Store.Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pecaDicaBDModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="pecaDicaBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="pecaDicaBDModel.Categoria" />
+          <EntitySet Name="Loja" EntityType="pecaDicaBDModel.Loja" />
+          <EntitySet Name="Marca" EntityType="pecaDicaBDModel.Marca" />
+          <EntitySet Name="Modelo" EntityType="pecaDicaBDModel.Modelo" />
+          <EntitySet Name="Produto" EntityType="pecaDicaBDModel.Produto" />
+          <AssociationSet Name="FK_Produto_Categoria" Association="pecaDicaBDModel.FK_Produto_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produto_Loja" Association="pecaDicaBDModel.FK_Produto_Loja">
+            <End Role="Loja" EntitySet="Loja" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modelo_Marca" Association="pecaDicaBDModel.FK_Modelo_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produto_Modelo" Association="pecaDicaBDModel.FK_Produto_Modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Produto" EntitySet="Produto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Produto" Relationship="pecaDicaBDModel.FK_Produto_Categoria" FromRole="Categoria" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="Loja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NomeUsuario" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Endereco" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Produto" Relationship="pecaDicaBDModel.FK_Produto_Loja" FromRole="Loja" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Modelo" Relationship="pecaDicaBDModel.FK_Modelo_Marca" FromRole="Marca" ToRole="Modelo" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ano" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Marca" Relationship="pecaDicaBDModel.FK_Modelo_Marca" FromRole="Modelo" ToRole="Marca" />
+          <NavigationProperty Name="Produto" Relationship="pecaDicaBDModel.FK_Produto_Modelo" FromRole="Modelo" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Categoria" Relationship="pecaDicaBDModel.FK_Produto_Categoria" FromRole="Produto" ToRole="Categoria" />
+          <NavigationProperty Name="Loja" Relationship="pecaDicaBDModel.FK_Produto_Loja" FromRole="Produto" ToRole="Loja" />
+          <NavigationProperty Name="Modelo" Relationship="pecaDicaBDModel.FK_Produto_Modelo" FromRole="Produto" ToRole="Modelo" />
+        </EntityType>
+        <Association Name="FK_Produto_Categoria">
+          <End Role="Categoria" Type="pecaDicaBDModel.Categoria" Multiplicity="1" />
+          <End Role="Produto" Type="pecaDicaBDModel.Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produto_Loja">
+          <End Role="Loja" Type="pecaDicaBDModel.Loja" Multiplicity="1" />
+          <End Role="Produto" Type="pecaDicaBDModel.Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Loja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modelo_Marca">
+          <End Role="Marca" Type="pecaDicaBDModel.Marca" Multiplicity="1" />
+          <End Role="Modelo" Type="pecaDicaBDModel.Modelo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produto_Modelo">
+          <End Role="Modelo" Type="pecaDicaBDModel.Modelo" Multiplicity="1" />
+          <End Role="Produto" Type="pecaDicaBDModel.Produto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pecaDicaBDModelStoreContainer" CdmEntityContainer="pecaDicaBDEntities">
+          <EntitySetMapping Name="Categoria"><EntityTypeMapping TypeName="pecaDicaBDModel.Categoria"><MappingFragment StoreEntitySet="Categoria">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Loja"><EntityTypeMapping TypeName="pecaDicaBDModel.Loja"><MappingFragment StoreEntitySet="Loja">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
+            <ScalarProperty Name="Senha" ColumnName="Senha" />
+            <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Marca"><EntityTypeMapping TypeName="pecaDicaBDModel.Marca"><MappingFragment StoreEntitySet="Marca">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Modelo"><EntityTypeMapping TypeName="pecaDicaBDModel.Modelo"><MappingFragment StoreEntitySet="Modelo">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="Ano" ColumnName="Ano" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Produto"><EntityTypeMapping TypeName="pecaDicaBDModel.Produto"><MappingFragment StoreEntitySet="Produto">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="PecaDicaEntities">
+        <EntityTypeShape EntityType="pecaDicaBDModel.Categoria" Width="1.5" PointX="3" PointY="4.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="pecaDicaBDModel.Loja" Width="1.5" PointX="3" PointY="7" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="pecaDicaBDModel.Marca" Width="1.5" PointX="0.75" PointY="1.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="pecaDicaBDModel.Modelo" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="pecaDicaBDModel.Produto" Width="1.5" PointX="5.25" PointY="0.875" Height="1.9802864583333317" IsExpanded="true" />
+        <AssociationConnector Association="pecaDicaBDModel.FK_Produto_Categoria" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.3939925130208337" />
+          <ConnectorPoint PointX="5.2447891666666671" PointY="5.3939925130208328" />
+          <ConnectorPoint PointX="5.4114558333333331" PointY="5.3939925130208337" />
+          <ConnectorPoint PointX="6.07031375" PointY="5.3939925130208337" />
+          <ConnectorPoint PointX="6.07031375" PointY="2.8552864583333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="pecaDicaBDModel.FK_Produto_Loja" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.1824446614583337" />
+          <ConnectorPoint PointX="5.3281225" PointY="8.1824446614583337" />
+          <ConnectorPoint PointX="5.3281225" PointY="2.8552864583333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="pecaDicaBDModel.FK_Modelo_Marca" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9228417968749998" />
+          <ConnectorPoint PointX="3" PointY="1.9228417968749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="pecaDicaBDModel.FK_Produto_Modelo" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.8651432291666659" />
+          <ConnectorPoint PointX="5.25" PointY="1.8651432291666659" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

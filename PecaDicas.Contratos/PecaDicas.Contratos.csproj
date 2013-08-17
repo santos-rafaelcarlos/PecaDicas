@@ -42,19 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categoria.cs" />
     <Compile Include="Common\DetalhamentoFalha.cs" />
-    <Compile Include="ServiceContract\ICategoriaService.cs" />
-    <Compile Include="ServiceContract\ILojaService.cs" />
-    <Compile Include="ServiceContract\ICriptografia.cs" />
-    <Compile Include="Common\IServicoBanco.cs" />
-    <Compile Include="DataContract\Categoria.cs" />
     <Compile Include="Common\IDValuePair.cs" />
-    <Compile Include="DataContract\Loja.cs" />
-    <Compile Include="DataContract\Marca.cs" />
-    <Compile Include="DataContract\Produto.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataContract\Modelo.cs" />
+    <Compile Include="Loja.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="Modelo.cs" />
+    <Compile Include="Produto.cs" />
     <Compile Include="ServiceContract\IProdutoService.cs" />
+    <Compile Include="ServiceContract\ILojaService.cs" />
+    <Compile Include="ServiceContract\ICategoriaService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContract\ICriptografia.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

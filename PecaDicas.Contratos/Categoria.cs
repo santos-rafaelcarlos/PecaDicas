@@ -8,8 +8,9 @@ using PecaDicas.Contratos.Common;
 namespace PecaDicas.Contratos
 {
     [DataContract]
-    public class Marca :IDValuePair
-    {       
-      
+    public class Categoria:IDValuePair
+    {
+        [DataMember]
+        public virtual String Descricao { get; set; }
     }
 }

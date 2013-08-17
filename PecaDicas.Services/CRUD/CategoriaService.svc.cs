@@ -1,34 +1,100 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using PecaDicas.Contratos;
-using PecaDicas.Contratos.Common;
 using System.Security.Permissions;
+using System.ServiceModel;
+using PecaDicas.Contratos.Common;
+using PecaDicas.Services.Common;
+using PecaDicas.Services.DataServices;
+using System.Collections.Generic;
+using System.Data;
 
 namespace PecaDicas.Services
 {    
-    public class CategoriaService : ICategoriaService
+    public class CategoriaService : PecaDicas.Contratos.ICategoriaService
     {
-        [PrincipalPermission(SecurityAction.Demand, Role="loja")]
-        public void Inserir(Categoria item)
+       // [PrincipalPermission(SecurityAction.Demand, Role="loja")]
+        public void Inserir(PecaDicas.Contratos.Categoria item)            
         {
-            throw new NotImplementedException();
+            try
+            {
+                Categoria categoria = new Categoria()
+                {
+                    Id = item.ID,
+                    Descricao =item.Descricao,
+                    Nome = item.Nome,
+                };
+                PersistenciaHelper.Instance.AddToCategoria(categoria);
+                PersistenciaHelper.Instance.SaveChanges();
+            }
+            catch (ConverterException cEx)
+            {
+                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha() 
+                {
+                    Mensagem = cEx.Message,
+                }); 
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
+                {
+                    Mensagem = "Falha",
+                    MensagemInterna = ex.Message,
+                });
+            }  
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Deletar(Categoria item)
+        public void Deletar(PecaDicas.Contratos.Categoria item)            
         {
-            throw new NotImplementedException();
+            try
+            {
+                Categoria categoria = ConverterHelper<Categoria>.TryConverter(PersistenciaHelper.GetItem("Categoria", item.ID));
+
+                PersistenciaHelper.Instance.Categoria.DeleteObject(categoria);
+                PersistenciaHelper.Instance.SaveChanges();
+            }
+            catch (ConverterException cEx)
+            {
+                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
+                {
+                    Mensagem = cEx.Message,
+                });
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
+                {
+                    Mensagem = "Falha",
+                    MensagemInterna = ex.Message,
+                });
+            }  
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Alterar(Categoria item)
+        public void Alterar(PecaDicas.Contratos.Categoria item)            
         {
-            throw new NotImplementedException();
+            try
+            {
+                Categoria categoria = ConverterHelper<Categoria>.TryConverter(PersistenciaHelper.GetItem("Categoria", item.ID));
+                categoria.Nome = item.Nome;
+                categoria.Descricao = item.Descricao;
+                               
+                PersistenciaHelper.Instance.SaveChanges();
+            }
+            catch (ConverterException cEx)
+            {
+                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
+                {
+                    Mensagem = cEx.Message,
+                });
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
+                {
+                    Mensagem = "Falha",
+                    MensagemInterna = ex.Message,
+                });
+            }  
         }
     }
 }
