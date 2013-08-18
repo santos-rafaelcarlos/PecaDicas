@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 17/08/2013 16:46:38
+// Generation date: 18/08/2013 10:18:35
 namespace TesteDataService.ModelData
 {
     
     /// <summary>
-    /// There are no comments for pecaDicaBDEntities in the schema.
+    /// There are no comments for PecaDicaBDEntities in the schema.
     /// </summary>
-    public partial class pecaDicaBDEntities : global::System.Data.Services.Client.DataServiceContext
+    public partial class PecaDicaBDEntities : global::System.Data.Services.Client.DataServiceContext
     {
         /// <summary>
-        /// Initialize a new pecaDicaBDEntities object.
+        /// Initialize a new PecaDicaBDEntities object.
         /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public pecaDicaBDEntities(global::System.Uri serviceRoot) : 
+        public PecaDicaBDEntities(global::System.Uri serviceRoot) : 
                 base(serviceRoot)
         {
             this.ResolveName = new global::System.Func<global::System.Type, string>(this.ResolveNameFromType);
@@ -38,7 +38,7 @@ namespace TesteDataService.ModelData
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         protected global::System.Type ResolveTypeFromName(string typeName)
         {
-            if (typeName.StartsWith("pecaDicaBDModel", global::System.StringComparison.Ordinal))
+            if (typeName.StartsWith("PecaDicaBDModel", global::System.StringComparison.Ordinal))
             {
                 return this.GetType().Assembly.GetType(string.Concat("TesteDataService.ModelData", typeName.Substring(15)), false);
             }
@@ -54,7 +54,7 @@ namespace TesteDataService.ModelData
         {
             if (clientType.Namespace.Equals("TesteDataService.ModelData", global::System.StringComparison.Ordinal))
             {
-                return string.Concat("pecaDicaBDModel.", clientType.Name);
+                return string.Concat("PecaDicaBDModel.", clientType.Name);
             }
             return null;
         }
@@ -185,7 +185,7 @@ namespace TesteDataService.ModelData
         }
     }
     /// <summary>
-    /// There are no comments for pecaDicaBDModel.Categoria in the schema.
+    /// There are no comments for PecaDicaBDModel.Categoria in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -305,7 +305,7 @@ namespace TesteDataService.ModelData
         }
     }
     /// <summary>
-    /// There are no comments for pecaDicaBDModel.Loja in the schema.
+    /// There are no comments for PecaDicaBDModel.Loja in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -497,7 +497,7 @@ namespace TesteDataService.ModelData
         }
     }
     /// <summary>
-    /// There are no comments for pecaDicaBDModel.Marca in the schema.
+    /// There are no comments for PecaDicaBDModel.Marca in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -593,7 +593,7 @@ namespace TesteDataService.ModelData
         }
     }
     /// <summary>
-    /// There are no comments for pecaDicaBDModel.Modelo in the schema.
+    /// There are no comments for PecaDicaBDModel.Modelo in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -731,7 +731,7 @@ namespace TesteDataService.ModelData
         }
     }
     /// <summary>
-    /// There are no comments for pecaDicaBDModel.Produto in the schema.
+    /// There are no comments for PecaDicaBDModel.Produto in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id

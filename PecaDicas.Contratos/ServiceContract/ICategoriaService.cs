@@ -8,15 +8,15 @@ namespace PecaDicas.Contratos
     {
         [OperationContract]
         [FaultContract(typeof(DetalhamentoFalha))]
-        void Inserir(Categoria item);
+        void Inserir(PecaDica.Modelo.Categoria item);
 
         [OperationContract]
         [FaultContract(typeof(DetalhamentoFalha))]
-        void Deletar(Categoria item);
+        void Deletar(PecaDica.Modelo.Categoria item);
 
         [OperationContract]
         [FaultContract(typeof(DetalhamentoFalha))]
-        void Alterar(Categoria item);
+        void Alterar(PecaDica.Modelo.Categoria item);
 
     }
 }

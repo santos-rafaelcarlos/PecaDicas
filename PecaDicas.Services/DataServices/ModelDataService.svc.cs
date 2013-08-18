@@ -8,14 +8,14 @@ using System.Web;
 
 namespace PecaDicas.Services.DataServices
 {
-    public class ModelDataService : DataService<pecaDicaBDEntities>
+    public class ModelDataService : DataService<PecaDica.Modelo.PecaDicaBDEntities>
     {
         // This method is called only once to initialize service-wide policies.
         public static void InitializeService(DataServiceConfiguration config)
         {
             // TODO: set rules to indicate which entity sets and service operations are visible, updatable, etc.
             // Examples:
-            config.SetEntitySetAccessRule("*", EntitySetRights.All);
+            config.SetEntitySetAccessRule("*", EntitySetRights.AllRead);
             // config.SetServiceOperationAccessRule("MyServiceOperation", ServiceOperationRights.All);
             config.DataServiceBehavior.MaxProtocolVersion = DataServiceProtocolVersion.V2;
         }

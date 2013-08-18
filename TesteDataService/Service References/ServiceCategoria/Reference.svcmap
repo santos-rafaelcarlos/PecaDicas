@@ -24,6 +24,8 @@
     <MetadataFile FileName="CategoriaService1.xsd" MetadataType="Schema" ID="9d36d88e-0ccc-461c-ad89-95aa517a6f1a" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd0" />
     <MetadataFile FileName="CategoriaService.disco" MetadataType="Disco" ID="2dce6b94-6261-46d6-88ca-062289224eee" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?disco" />
     <MetadataFile FileName="CategoriaService.wsdl" MetadataType="Wsdl" ID="3b937041-954b-4b6f-aa46-c3c90f84fa14" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?wsdl" />
+    <MetadataFile FileName="CategoriaService4.xsd" MetadataType="Schema" ID="a2045bf6-f7e3-4752-a7a8-f20066e73124" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CategoriaService41.xsd" MetadataType="Schema" ID="41f4b391-4900-4f9a-854e-861d1f2825ee" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd4" />
     <MetadataFile FileName="CategoriaService3.xsd" MetadataType="Schema" ID="d60e02df-061e-419d-b0ae-6977687cc97e" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd3" />
     <MetadataFile FileName="CategoriaService.xsd" MetadataType="Schema" ID="f0a8a2db-cce9-41f0-8632-07a240549624" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd2" />
     <MetadataFile FileName="CategoriaService2.xsd" MetadataType="Schema" ID="0478be92-3c74-4a52-a00f-1cc4edc74273" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd1" />

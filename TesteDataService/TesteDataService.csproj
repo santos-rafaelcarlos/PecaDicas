@@ -106,6 +106,12 @@
     <None Include="Service References\ServiceCategoria\CategoriaService.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceCategoria\CategoriaService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceCategoria\CategoriaService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceCategoria\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

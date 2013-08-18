@@ -12,14 +12,14 @@ namespace PecaDicas.Contratos
     {
         [OperationContract]
         [FaultContract(typeof(DetalhamentoFalha))]
-        void Inserir(Produto item);
+        void Inserir(PecaDica.Modelo.Produto item);
 
         [OperationContract]
         [FaultContract(typeof(DetalhamentoFalha))]
-        void Deletar(Produto item);
+        void Deletar(PecaDica.Modelo.Produto item);
 
         [OperationContract]
         [FaultContract(typeof(DetalhamentoFalha))]
-        void Alterar(Produto item);
+        void Alterar(PecaDica.Modelo.Produto item);
     }
 }

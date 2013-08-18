@@ -11,87 +11,54 @@ namespace PecaDicas.Services
 {    
     public class CategoriaService : PecaDicas.Contratos.ICategoriaService
     {
-       // [PrincipalPermission(SecurityAction.Demand, Role="loja")]
-        public void Inserir(PecaDicas.Contratos.Categoria item)            
+        [PrincipalPermission(SecurityAction.Demand, Role="loja")]
+        public void Inserir(PecaDica.Modelo.Categoria item)            
         {
             try
             {
-                Categoria categoria = new Categoria()
-                {
-                    Id = item.ID,
-                    Descricao =item.Descricao,
-                    Nome = item.Nome,
-                };
-                PersistenciaHelper.Instance.AddToCategoria(categoria);
+                PersistenciaHelper.Instance.AddToCategoria(item);
                 PersistenciaHelper.Instance.SaveChanges();
-            }
-            catch (ConverterException cEx)
-            {
-                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha() 
-                {
-                    Mensagem = cEx.Message,
-                }); 
-            }
+            }            
             catch (Exception ex)
             {
                 throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
                 {
-                    Mensagem = "Falha",
+                    Mensagem = "Falha ao inserir categoria",
                     MensagemInterna = ex.Message,
                 });
             }  
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Deletar(PecaDicas.Contratos.Categoria item)            
+        public void Deletar(PecaDica.Modelo.Categoria item)            
         {
             try
-            {
-                Categoria categoria = ConverterHelper<Categoria>.TryConverter(PersistenciaHelper.GetItem("Categoria", item.ID));
-
-                PersistenciaHelper.Instance.Categoria.DeleteObject(categoria);
+            {           
+                PersistenciaHelper.Instance.Categoria.DeleteObject(item);
                 PersistenciaHelper.Instance.SaveChanges();
-            }
-            catch (ConverterException cEx)
-            {
-                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
-                {
-                    Mensagem = cEx.Message,
-                });
             }
             catch (Exception ex)
             {
                 throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
                 {
-                    Mensagem = "Falha",
+                    Mensagem = "Falha ao deletar categoria",
                     MensagemInterna = ex.Message,
                 });
             }  
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Alterar(PecaDicas.Contratos.Categoria item)            
+        public void Alterar(PecaDica.Modelo.Categoria item)            
         {
             try
-            {
-                Categoria categoria = ConverterHelper<Categoria>.TryConverter(PersistenciaHelper.GetItem("Categoria", item.ID));
-                categoria.Nome = item.Nome;
-                categoria.Descricao = item.Descricao;
-                               
+            {                               
                 PersistenciaHelper.Instance.SaveChanges();
-            }
-            catch (ConverterException cEx)
-            {
-                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
-                {
-                    Mensagem = cEx.Message,
-                });
             }
             catch (Exception ex)
             {
                 throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
                 {
-                    Mensagem = "Falha",
+                    Mensagem = "Falha ao alterar categoria",
                     MensagemInterna = ex.Message,
                 });
             }  

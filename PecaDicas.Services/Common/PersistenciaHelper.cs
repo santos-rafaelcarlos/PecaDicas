@@ -9,17 +9,21 @@ namespace PecaDicas.Services.Common
 {
     internal static class PersistenciaHelper
     {
-        private const string ConnString = @"metadata=res://*/DataServices.PecaDicaEntities.csdl|res://*/DataServices.PecaDicaEntities.ssdl|res://*/DataServices.PecaDicaEntities.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=.\sqlExpress;Initial Catalog=pecaDicaBD;integrated security=False;multipleactiveresultsets=True;App=EntityFramework";
+        private static string ConnString =
+    System.Configuration.ConfigurationManager.ConnectionStrings["PecaDicaBDEntities"].ConnectionString;
+            
+//@"metadata=res://*/DataServices.PecaDicaEntities.csdl|res://*/DataServices.PecaDicaEntities.ssdl|res://*/DataServices.PecaDicaEntities.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=.\sqlExpress;Initial Catalog=pecaDicaBD;integrated security=False;multipleactiveresultsets=True;App=EntityFramework";
        // private const string sqlConnString = @"Server=.\sqlExpress;Database=pecaDicaBD;Integrated Security=True";
 
         //String.Format("metadata=res://*/ReportingEDM.csdl|res://*/ReportingEDM.ssdl|res://*/ReportingEDM.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=<<DBServerName>>;Initial Catalog=<<DBName>>;User ID=<<username>>;Password=<<password>>!;MultipleActiveResultSets=True"" provider Name=System.Data.EntityClient")
-        private static pecaDicaBDEntities instance;
-        internal static pecaDicaBDEntities Instance
+        private static PecaDica.Modelo.PecaDicaBDEntities instance;
+        internal static PecaDica.Modelo.PecaDicaBDEntities Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new pecaDicaBDEntities(new System.Data.EntityClient.EntityConnection(ConnString));
+                    instance = new PecaDica.Modelo.PecaDicaBDEntities();
+                //new System.Data.EntityClient.EntityConnection(ConnString));
                 return instance;
             }
         }

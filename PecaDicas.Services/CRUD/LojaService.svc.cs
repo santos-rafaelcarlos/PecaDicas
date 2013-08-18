@@ -11,99 +11,59 @@ namespace PecaDicas.Services
     public class LojaService : PecaDicas.Contratos.ILojaService
     {
         [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-        public void Inserir(PecaDicas.Contratos.Loja item)
+        public void Inserir(PecaDica.Modelo.Loja item)
         {
             try
             {
-                Loja loja = new Loja()
-                {
-                    Id = item.ID,
-                    Nome = item.Nome,
-                    NomeUsuario = item.NomeUsuario,
-                    Email = item.Email,
-                    Endereco = item.Endereco,
-                    Senha = item.Senha,
-                };
+                Membership.CreateUser(item.NomeUsuario, item.Senha, item.Email);
+                AtribuirRoleAUsuario(item.NomeUsuario);
 
-                Membership.CreateUser(loja.NomeUsuario, loja.Senha, loja.Email);
-                AtribuirRoleAUsuario(loja.NomeUsuario);
-
-                PersistenciaHelper.Instance.AddToLoja(loja);
+                PersistenciaHelper.Instance.AddToLoja(item);
                 PersistenciaHelper.Instance.SaveChanges();
-            }
-            catch (ConverterException cEx)
-            {
-                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
-                {
-                    Mensagem = cEx.Message,
-                });
             }
             catch (Exception ex)
             {
                 throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
                 {
-                    Mensagem = "Falha",
+                    Mensagem = "Falha ao inserir loja",
                     MensagemInterna = ex.Message,
                 });
             }
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-        public void Deletar(PecaDicas.Contratos.Loja item)
+        public void Deletar(PecaDica.Modelo.Loja item)
         {
             try
             {
-                Loja loja = ConverterHelper<Loja>.TryConverter(PersistenciaHelper.GetItem("Loja", item.ID));
-
-                Membership.DeleteUser(loja.NomeUsuario);
+                Membership.DeleteUser(item.NomeUsuario);
 
 
-                PersistenciaHelper.Instance.Loja.DeleteObject(loja);
+                PersistenciaHelper.Instance.Loja.DeleteObject(item);
                 PersistenciaHelper.Instance.SaveChanges();
-            }
-            catch (ConverterException cEx)
-            {
-                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
-                {
-                    Mensagem = cEx.Message,
-                });
             }
             catch (Exception ex)
             {
                 throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
                 {
-                    Mensagem = "Falha",
+                    Mensagem = "Falha ao deletar loja",
                     MensagemInterna = ex.Message,
                 });
             }
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-        public void Alterar(PecaDicas.Contratos.Loja item)
+        public void Alterar(PecaDica.Modelo.Loja item)
         {
             try
             {
-                Loja loja = ConverterHelper<Loja>.TryConverter(PersistenciaHelper.GetItem("Loja", item.ID));
-                loja.Nome = item.Nome;
-                loja.NomeUsuario = item.NomeUsuario;
-                loja.Senha = item.Senha;
-                loja.Endereco = item.Endereco;
-                loja.Email = item.Email;
-
                 PersistenciaHelper.Instance.SaveChanges();
-            }
-            catch (ConverterException cEx)
-            {
-                throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
-                {
-                    Mensagem = cEx.Message,
-                });
             }
             catch (Exception ex)
             {
                 throw new FaultException<DetalhamentoFalha>(new DetalhamentoFalha()
                 {
-                    Mensagem = "Falha",
+                    Mensagem = "Falha ao alterar loja",
                     MensagemInterna = ex.Message,
                 });
             }

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -42,18 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoria.cs" />
     <Compile Include="Common\DetalhamentoFalha.cs" />
-    <Compile Include="Common\IDValuePair.cs" />
-    <Compile Include="Loja.cs" />
-    <Compile Include="Marca.cs" />
-    <Compile Include="Modelo.cs" />
-    <Compile Include="Produto.cs" />
+    <Compile Include="ServiceContract\IMarcaService.cs" />
+    <Compile Include="ServiceContract\IModeloService.cs" />
     <Compile Include="ServiceContract\IProdutoService.cs" />
     <Compile Include="ServiceContract\ILojaService.cs" />
     <Compile Include="ServiceContract\ICategoriaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContract\ICriptografia.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PecaDica.Modelo\PecaDica.Modelo.csproj">
+      <Project>{D4C684B6-1BE6-4715-8746-71450A824BC9}</Project>
+      <Name>PecaDica.Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,10 +35,10 @@ namespace TesteDataService
            ServiceCategoria.CategoriaServiceClient  contexto =
               new ServiceCategoria.CategoriaServiceClient();
 
-           contexto.Inserir(new PecaDicas.Contratos.Categoria()
+           contexto.Inserir(new ServiceCategoria.Categoria()
            {
                Nome = "Lubrificação",
-               ID = Guid.NewGuid(),
+               Id = Guid.NewGuid(),
                Descricao = "Descrição",
            });           
 
