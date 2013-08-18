@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="pecaDicaBD.bak" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pecaDicaBD.sql" />
