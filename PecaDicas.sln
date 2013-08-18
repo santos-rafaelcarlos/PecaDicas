@@ -12,20 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{E649A2FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serviços", "Serviços", "{C8479DDA-FBD7-492B-B06F-771BD0BADC72}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teste", "Teste", "{350ECB0C-F2E9-4D93-9575-63EACA288A51}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteDataService", "TesteDataService\TesteDataService.csproj", "{CE6C12AF-D62D-4F06-B980-5A7E45B57133}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6189EA77-CE6A-40CA-841B-0B290560B433} = {6189EA77-CE6A-40CA-841B-0B290560B433}
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{804699DD-8D11-418D-8733-BD78A2343F5A}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		PecaDicas.vsmdi = PecaDicas.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{33DB18F4-9ECA-4AE9-81C7-2579E8D956BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDicas.WebApp", "PecaDicas.WebApp\PecaDicas.WebApp.csproj", "{41B2B255-10B2-4446-B44D-6D6AE461F5F9}"
@@ -33,9 +19,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDica.Modelo", "PecaDica.Modelo\PecaDica.Modelo.csproj", "{D4C684B6-1BE6-4715-8746-71450A824BC9}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = PecaDicas.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -49,10 +32,6 @@ Global
 		{6189EA77-CE6A-40CA-841B-0B290560B433}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6189EA77-CE6A-40CA-841B-0B290560B433}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6189EA77-CE6A-40CA-841B-0B290560B433}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE6C12AF-D62D-4F06-B980-5A7E45B57133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE6C12AF-D62D-4F06-B980-5A7E45B57133}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE6C12AF-D62D-4F06-B980-5A7E45B57133}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE6C12AF-D62D-4F06-B980-5A7E45B57133}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41B2B255-10B2-4446-B44D-6D6AE461F5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41B2B255-10B2-4446-B44D-6D6AE461F5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41B2B255-10B2-4446-B44D-6D6AE461F5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,8 +48,6 @@ Global
 		{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A} = {E649A2FE-E9E6-4AC8-AE86-2457FE64A915}
 		{D4C684B6-1BE6-4715-8746-71450A824BC9} = {E649A2FE-E9E6-4AC8-AE86-2457FE64A915}
 		{6189EA77-CE6A-40CA-841B-0B290560B433} = {C8479DDA-FBD7-492B-B06F-771BD0BADC72}
-		{CE6C12AF-D62D-4F06-B980-5A7E45B57133} = {350ECB0C-F2E9-4D93-9575-63EACA288A51}
-		{804699DD-8D11-418D-8733-BD78A2343F5A} = {350ECB0C-F2E9-4D93-9575-63EACA288A51}
 		{41B2B255-10B2-4446-B44D-6D6AE461F5F9} = {33DB18F4-9ECA-4AE9-81C7-2579E8D956BF}
 	EndGlobalSection
 EndGlobal
