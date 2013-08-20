@@ -1,0 +1,67 @@
+﻿  <fieldset>
+<legend>Menu</legend>
+  <head>       
+        <title>Peça Dicas</title>       
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    @if (Request.IsAuthenticated) {
+    <text>
+        Oi, @User.Identity.Name
+       @using (Html.BeginForm("LogOff", "SGAccount", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    </text>
+} else {
+    <ul dir=rtl>
+       @* <li>@Html.ActionLink("Register", "Register", "SGAccount", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        <li>@Html.ActionLink("Log in", "Login", "SGAccount", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+    }
+                </div>
+                <div class="float-right">
+                    <nav>                        
+                        <table>
+                        <tr>
+                            <th>    
+                            @Html.ActionLink("Home", "Index", "Home")
+                            </th>                                                                                   
+                            @if (User.IsInRole("SecurityGuard"))
+                            {
+                                <th> | 
+                                @Html.ActionLink("Security Guard", "Index", "Dashboard", new { area = "SecurityGuard" }, null)
+                                </th>
+                            }
+                            
+                            @if (User.IsInRole("loja"))
+                            {
+                                <th> | 
+                                @Html.ActionLink("Categoria", "Index", "Categoria")
+                                </th>
+                                <th> | 
+                                @Html.ActionLink("Produto", "Index", "Produto")
+                                </th>
+                            }
+                            @if (User.IsInRole("admin"))
+                            {
+                                <th> | 
+                                @Html.ActionLink("Administrativo", "Index", "Adm")
+                                </th>
+                            }  
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <th> | 
+                                @Html.ActionLink("Trocar Senha", "ChangePassword", "SGAccount")
+                                </th>
+                            }                          
+                            </tr>
+                            </table>                        
+                    </nav>
+                </div>
+            </div>
+        </header>
+        </fieldset>
+  

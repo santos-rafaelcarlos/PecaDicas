@@ -1,0 +1,61 @@
+﻿@model PecaDica.App.Models.ListaItemViewModel<PecaDica.App.PecaDicaServicos.Loja>
+
+@{
+    Layout = null;
+}
+@{ Html.RenderPartial("Menu");}
+
+
+<h2>Cadastro de Lojas</h2>
+<div>
+           @Html.PaginasLinks(Model.InformacaoDePaginacao, x => Url.Action("Index", new { pagina = x, Items = Model.Items }))
+</div>
+<p>
+    @Html.ActionLink("Novo", "Novo")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().NomeUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Senha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Endereco)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Items) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,86 @@
+﻿@model PecaDica.App.Models.ListaItemViewModel<PecaDica.App.PecaDicaServicos.Produto>
+
+@{
+    Layout = null;
+}
+@{ Html.RenderPartial("Menu");}
+
+@using (Html.BeginForm())
+{
+<h2>Produtos</h2>
+<fieldset>
+<legend>Filtros </legend>
+ <table>
+    <tr>
+    <td>
+ <div class="editor-label">
+    Marca
+ </div>
+ </td>
+ <td>
+ <div class="editor-field">
+    @Html.DropDownList("Marcas")
+ </div>
+ </td>
+ <td>
+ <p>
+<input type="submit" value="Carregar Modelos"  />
+</p>
+
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <div class="editor-label">
+    Modelo
+ </div>
+ </td>
+ <td>
+ <div class="editor-field">
+    @Html.DropDownList("Modelos")
+ </div>
+ </td>
+ </tr>
+ <tr>
+ <td>
+  <input id="btnFiltrar" type="submit" value="Filtrar" />  
+ </td>
+ </tr>
+ </table>
+</fieldset>
+   <div>
+           @Html.PaginasLinks(Model.InformacaoDePaginacao, x => Url.Action("Index", new { pagina = x, Items = Model.Items }))
+   </div>
+    <table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Loja)
+        </th> 
+    </tr>
+
+@foreach (var item in Model.Items)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>               
+        <td>       
+        @if (item.Categoria != null)
+        {
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)            }
+        </td>
+        <td>
+        @if (item.Loja != null)
+        {
+            @Html.DisplayFor(modelItem => item.Loja.Nome)}
+        </td>
+    </tr>
+}
+</table>
+}
