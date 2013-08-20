@@ -148,10 +148,35 @@
     <Compile Include="Models\ListaItensViewModel.cs" />
     <Compile Include="Models\LogOnViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CategoriaServicos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LojaServicos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MarcaServicos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ModeloServicos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PecaDicaServicos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProdutoServicos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -192,8 +217,119 @@
     <Content Include="Areas\SecurityGuard\Views\Membership\GrantRolesToUser.cshtml" />
     <Content Include="Areas\SecurityGuard\Views\Membership\CreateUser.cshtml" />
     <Content Include="Areas\SecurityGuard\Views\Dashboard\Index.cshtml" />
+    <None Include="Service References\CategoriaServicos\CategoriaService.wsdl" />
+    <None Include="Service References\CategoriaServicos\CategoriaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriaServicos\CategoriaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriaServicos\CategoriaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriaServicos\CategoriaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriaServicos\CategoriaService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoriaServicos\CategoriaService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService.wsdl" />
+    <None Include="Service References\LojaServicos\LojaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService.wsdl" />
+    <None Include="Service References\MarcaServicos\MarcaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService.wsdl" />
+    <None Include="Service References\ModeloServicos\ModeloService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PecaDicaServicos\Reference.datasvcmap">
       <Generator>DataServiceClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LojaServicos\LojaService.disco" />
+    <None Include="Service References\LojaServicos\configuration91.svcinfo" />
+    <None Include="Service References\LojaServicos\configuration.svcinfo" />
+    <None Include="Service References\LojaServicos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProdutoServicos\ProdutoService.disco" />
+    <None Include="Service References\ProdutoServicos\configuration91.svcinfo" />
+    <None Include="Service References\ProdutoServicos\configuration.svcinfo" />
+    <None Include="Service References\ProdutoServicos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ModeloServicos\ModeloService.disco" />
+    <None Include="Service References\ModeloServicos\configuration91.svcinfo" />
+    <None Include="Service References\ModeloServicos\configuration.svcinfo" />
+    <None Include="Service References\ModeloServicos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MarcaServicos\MarcaService.disco" />
+    <None Include="Service References\MarcaServicos\configuration91.svcinfo" />
+    <None Include="Service References\MarcaServicos\configuration.svcinfo" />
+    <None Include="Service References\MarcaServicos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CategoriaServicos\CategoriaService.disco" />
+    <None Include="Service References\CategoriaServicos\configuration91.svcinfo" />
+    <None Include="Service References\CategoriaServicos\configuration.svcinfo" />
+    <None Include="Service References\CategoriaServicos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Web.config" />
@@ -220,6 +356,25 @@
     <Content Include="Views\SGAccount\ChangePassword.cshtml" />
     <Content Include="Views\PasswordResetMailer\PasswordReset.cshtml" />
     <Content Include="Views\PasswordResetMailer\_Layout.cshtml" />
+    <None Include="Service References\ProdutoServicos\ProdutoService.wsdl" />
+    <None Include="Service References\ProdutoServicos\ProdutoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProdutoServicos\ProdutoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProdutoServicos\ProdutoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProdutoServicos\ProdutoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProdutoServicos\ProdutoService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProdutoServicos\ProdutoService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -237,6 +392,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\PecaDicaServicos\service.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CategoriaServicos\" />
+    <WCFMetadataStorage Include="Service References\LojaServicos\" />
+    <WCFMetadataStorage Include="Service References\MarcaServicos\" />
+    <WCFMetadataStorage Include="Service References\ModeloServicos\" />
+    <WCFMetadataStorage Include="Service References\ProdutoServicos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

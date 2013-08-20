@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PecaDica.App.Models;
-using PecaDica.App.PecaDicaServicos;
+using PecaDica.App.LojaServicos;
 
 namespace PecaDica.App.Controllers
 {
@@ -31,7 +31,7 @@ namespace PecaDica.App.Controllers
 
         private IEnumerable<Loja> Carregalojas()
         {
-            return new Loja[] { };
+            return ContextHelper.Contexto.Loja.Cast<>().ToArray();
         }
 
         [HttpGet]
@@ -44,7 +44,8 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Novo(Loja item, FormCollection form)
         {
-            //todo: salvar item
+            ContextHelper.LojaCliente.Open();
+            ContextHelper.LojaCliente.Inserir(item);
             return RedirectToAction("Index");
         }
 
