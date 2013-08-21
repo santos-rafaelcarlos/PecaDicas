@@ -5,10 +5,11 @@ using System.Data.Services.Common;
 using System.Linq;
 using System.ServiceModel.Web;
 using System.Web;
+using PecaDicas.Contratos.Common;
 
 namespace PecaDicas.Services.DataServices
 {
-    public class ModelDataService : DataService<PecaDica.Modelo.PecaDicaBDEntities>
+    public class ModelDataService : DataService<PecaDicaBDEntities>
     {
         // This method is called only once to initialize service-wide policies.
         public static void InitializeService(DataServiceConfiguration config)

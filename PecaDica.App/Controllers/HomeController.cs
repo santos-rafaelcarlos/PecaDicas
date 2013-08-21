@@ -62,17 +62,23 @@ namespace PecaDica.App.Controllers
             IEnumerable<Produto> produtos = new Produto[] { };
 
             if (modelo != null)
-                produtos = ConverterHelper<PecaDicaServicos.Produto, Produto>
-                    .ConvertAParaB(ContextHelper.Contexto.Produto.Where(c => c.Modelo.Id == modelo.Id));
+                produtos = ContextHelper.Contexto.Produto.Where(c => c.Modelo.Id == modelo.Id);
             
             return produtos;
         }
 
         private void CarregaMarcas(Marca marca = null)
         {
-            var marcas = ConverterHelper<PecaDicaServicos.Marca, Marca>
-                   .ConvertAParaB(ContextHelper.Contexto.Marca.AsEnumerable());
-            
+            var marcas = new Marca[] { };
+            try
+            {
+                marcas = ContextHelper.Contexto.Marca.ToArray();
+            }
+            catch
+            {
+                marcas = new Marca[] { };
+            }
+
             ViewBag.Marcas = new SelectList(marcas, "Id", "Nome", marca);
         }
 
@@ -81,8 +87,7 @@ namespace PecaDica.App.Controllers
             IEnumerable<Modelo> modelos = new Modelo[] { };
 
             if (marca != null)
-                modelos = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
-                    .ConvertAParaB(ContextHelper.Contexto.Modelo.Where(c => c.Marca.Id == marca.Id));
+                modelos = ContextHelper.Contexto.Modelo.Where(c => c.Marca.Id == marca.Id);
 
             ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modelo);
         }

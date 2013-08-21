@@ -9,21 +9,26 @@ namespace PecaDica.App.Common
     {
         public static TipoB ConvertAParaB(TipoA item)
         {
-            TipoB retVal = Activator.CreateInstance<TipoB>();
+            try
+            {
+                TipoB retVal = Activator.CreateInstance<TipoB>();
 
-            foreach (var propertyA in typeof(TipoA).GetProperties())
-                foreach (var propertyB in typeof(TipoB).GetProperties())
-                {
-                    if (propertyA.Name != propertyB.Name
-                        || propertyA.PropertyType != propertyB.PropertyType)
-                        continue;
+                foreach (var propertyA in typeof(TipoA).GetProperties())
+                    foreach (var propertyB in typeof(TipoB).GetProperties())
+                    {
+                        if (propertyA.Name != propertyB.Name
+                            || propertyA.PropertyType != propertyB.PropertyType)
+                            continue;
 
-                    Object value = propertyA.GetValue(item, null);
+                        Object value = propertyA.GetValue(item, null);
 
-                    propertyB.SetValue(retVal, value, null);
-                }
+                        propertyB.SetValue(retVal, value, null);
+                    }
 
-            return retVal;
+                return retVal;
+            }
+            catch
+            { return Activator.CreateInstance<TipoB>(); }
         }
 
         public static IEnumerable<TipoB> ConvertAParaB(IEnumerable<TipoA> items)

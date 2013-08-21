@@ -23,7 +23,6 @@
   <Metadata>
     <MetadataFile FileName="MarcaService.wsdl" MetadataType="Wsdl" ID="4f7af843-2ab3-4796-b636-871410a2cefa" SourceId="1" SourceUrl="http://localhost:63962/CRUD/MarcaService.svc?wsdl" />
     <MetadataFile FileName="MarcaService.disco" MetadataType="Disco" ID="147b22fd-22e7-4244-b86d-74d5b0f90f31" SourceId="1" SourceUrl="http://localhost:63962/CRUD/MarcaService.svc?disco" />
-    <MetadataFile FileName="MarcaService.xsd" MetadataType="Schema" ID="d18893aa-21a6-4586-a3ab-9d71b9e5c8e8" SourceId="1" SourceUrl="http://localhost:63962/CRUD/MarcaService.svc?xsd=xsd5" />
     <MetadataFile FileName="MarcaService1.xsd" MetadataType="Schema" ID="2b85fd07-e954-4244-9282-937a07014492" SourceId="1" SourceUrl="http://localhost:63962/CRUD/MarcaService.svc?xsd=xsd4" />
     <MetadataFile FileName="MarcaService2.xsd" MetadataType="Schema" ID="2584a3fa-549b-4972-a8b3-e943140934ea" SourceId="1" SourceUrl="http://localhost:63962/CRUD/MarcaService.svc?xsd=xsd3" />
     <MetadataFile FileName="MarcaService3.xsd" MetadataType="Schema" ID="48f5cf6d-4f66-4538-bd56-0c1e1a2fc418" SourceId="1" SourceUrl="http://localhost:63962/CRUD/MarcaService.svc?xsd=xsd2" />

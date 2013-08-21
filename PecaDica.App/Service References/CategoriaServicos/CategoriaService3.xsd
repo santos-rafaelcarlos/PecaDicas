@@ -18,11 +18,11 @@
     <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="StructuralObject" nillable="true" type="tns:StructuralObject" />
-  <xs:complexType name="EntityReferenceOfCategoriaTOjbUMNd">
+  <xs:complexType name="EntityReferenceOfCategoriar2n0WSfK">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Categoria" Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" />
+          <GenericParameter Name="Categoria" Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -32,7 +32,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfCategoriaTOjbUMNd" nillable="true" type="tns:EntityReferenceOfCategoriaTOjbUMNd" />
+  <xs:element name="EntityReferenceOfCategoriar2n0WSfK" nillable="true" type="tns:EntityReferenceOfCategoriar2n0WSfK" />
   <xs:complexType name="EntityReference">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:RelatedEnd">
@@ -47,11 +47,11 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="RelatedEnd" nillable="true" type="tns:RelatedEnd" />
-  <xs:complexType name="EntityReferenceOfProdutoTOjbUMNd">
+  <xs:complexType name="EntityReferenceOfProdutor2n0WSfK">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Produto" Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" />
+          <GenericParameter Name="Produto" Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -61,12 +61,12 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfProdutoTOjbUMNd" nillable="true" type="tns:EntityReferenceOfProdutoTOjbUMNd" />
-  <xs:complexType name="EntityReferenceOfLojaTOjbUMNd">
+  <xs:element name="EntityReferenceOfProdutor2n0WSfK" nillable="true" type="tns:EntityReferenceOfProdutor2n0WSfK" />
+  <xs:complexType name="EntityReferenceOfLojar2n0WSfK">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Loja" Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" />
+          <GenericParameter Name="Loja" Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -76,12 +76,12 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfLojaTOjbUMNd" nillable="true" type="tns:EntityReferenceOfLojaTOjbUMNd" />
-  <xs:complexType name="EntityReferenceOfModeloTOjbUMNd">
+  <xs:element name="EntityReferenceOfLojar2n0WSfK" nillable="true" type="tns:EntityReferenceOfLojar2n0WSfK" />
+  <xs:complexType name="EntityReferenceOfModelor2n0WSfK">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Modelo" Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" />
+          <GenericParameter Name="Modelo" Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -91,12 +91,12 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfModeloTOjbUMNd" nillable="true" type="tns:EntityReferenceOfModeloTOjbUMNd" />
-  <xs:complexType name="EntityReferenceOfMarcaTOjbUMNd">
+  <xs:element name="EntityReferenceOfModelor2n0WSfK" nillable="true" type="tns:EntityReferenceOfModelor2n0WSfK" />
+  <xs:complexType name="EntityReferenceOfMarcar2n0WSfK">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Marca" Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" />
+          <GenericParameter Name="Marca" Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -106,5 +106,5 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfMarcaTOjbUMNd" nillable="true" type="tns:EntityReferenceOfMarcaTOjbUMNd" />
+  <xs:element name="EntityReferenceOfMarcar2n0WSfK" nillable="true" type="tns:EntityReferenceOfMarcar2n0WSfK" />
 </xs:schema>

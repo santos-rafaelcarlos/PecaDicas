@@ -35,6 +35,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DetalhamentoFalha.cs" />
+    <Compile Include="Common\PecaDicasEntidades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PecaDicasEntidades.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ServiceContract\IMarcaService.cs" />
     <Compile Include="ServiceContract\IModeloService.cs" />
     <Compile Include="ServiceContract\IProdutoService.cs" />
@@ -53,10 +59,13 @@
     <Compile Include="ServiceContract\ICriptografia.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PecaDica.Modelo\PecaDica.Modelo.csproj">
-      <Project>{D4C684B6-1BE6-4715-8746-71450A824BC9}</Project>
-      <Name>PecaDica.Modelo</Name>
-    </ProjectReference>
+    <EntityDeploy Include="Common\PecaDicasEntidades.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PecaDicasEntidades.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

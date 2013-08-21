@@ -12,7 +12,7 @@ namespace PecaDicas.Services
     public class CategoriaService : PecaDicas.Contratos.ICategoriaService
     {
         [PrincipalPermission(SecurityAction.Demand, Role="loja")]
-        public void Inserir(PecaDica.Modelo.Categoria item)            
+        public void Inserir(Categoria item)            
         {
             try
             {
@@ -30,7 +30,7 @@ namespace PecaDicas.Services
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Deletar(PecaDica.Modelo.Categoria item)            
+        public void Deletar(Categoria item)            
         {
             try
             {           
@@ -48,7 +48,7 @@ namespace PecaDicas.Services
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Alterar(PecaDica.Modelo.Categoria item)            
+        public void Alterar(Categoria item)            
         {
             try
             {                               

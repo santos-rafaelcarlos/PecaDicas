@@ -226,9 +226,6 @@
     <None Include="Service References\CategoriaServicos\CategoriaService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CategoriaServicos\CategoriaService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\CategoriaServicos\CategoriaService2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -242,9 +239,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\LojaServicos\LojaService.wsdl" />
-    <None Include="Service References\LojaServicos\LojaService.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\LojaServicos\LojaService1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -261,9 +255,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MarcaServicos\MarcaService.wsdl" />
-    <None Include="Service References\MarcaServicos\MarcaService.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\MarcaServicos\MarcaService1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -290,9 +281,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ModeloServicos\ModeloService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ModeloServicos\ModeloService4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ModeloServicos\ModeloService5.xsd">
@@ -362,9 +350,6 @@
     <Content Include="Views\PasswordResetMailer\PasswordReset.cshtml" />
     <Content Include="Views\PasswordResetMailer\_Layout.cshtml" />
     <None Include="Service References\ProdutoServicos\ProdutoService.wsdl" />
-    <None Include="Service References\ProdutoServicos\ProdutoService.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ProdutoServicos\ProdutoService1.xsd">
       <SubType>Designer</SubType>
     </None>

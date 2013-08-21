@@ -18,7 +18,7 @@ namespace PecaDica.App.Controllers
 
         public ProdutoController()
         {
-            string userName = User.Identity.Name;
+            string userName = System.Web.Security.Membership.GetUser().UserName;
 
             Loja = ConverterHelper<PecaDicaServicos.Loja, Loja>
                     .ConvertAParaB(ContextHelper.Contexto.Loja.Where(c =>string.Compare(c.NomeUsuario,userName,true) == 0)
@@ -27,7 +27,7 @@ namespace PecaDica.App.Controllers
         }
 
         public int TamanhoDaPagina = 20;
-        public ActionResult Index(int pagina)
+        public ActionResult Index(int pagina = 1)
         {
             var produtos = ConverterHelper<PecaDicaServicos.Produto, Produto>
                     .ConvertAParaB(ContextHelper.Contexto.Produto
@@ -46,7 +46,7 @@ namespace PecaDica.App.Controllers
                    },
                };
 
-            return View();
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -130,7 +130,7 @@ namespace PecaDica.App.Controllers
             var modelos = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
                     .ConvertAParaB(ContextHelper.Contexto.Modelo.AsEnumerable());
 
-            ViewBag.Modelos = new SelectList(modelos, modelo);
+            ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modelo);
         }
 
         private void CarregaCategoria(Categoria categoria = null)
@@ -138,7 +138,7 @@ namespace PecaDica.App.Controllers
             var categorias = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
                     .ConvertAParaB(ContextHelper.Contexto.Categoria.AsEnumerable());
 
-            ViewBag.Categorias = new SelectList(categorias, categoria);
+            ViewBag.Categorias = new SelectList(categorias,"Id","Nome", categoria);
         }
     }
 }

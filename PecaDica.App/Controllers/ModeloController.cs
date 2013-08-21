@@ -47,7 +47,7 @@ namespace PecaDica.App.Controllers
             var marcas = ConverterHelper<PecaDicaServicos.Marca, Marca>
                    .ConvertAParaB(ContextHelper.Contexto.Marca.AsEnumerable());
 
-            ViewBag.Marcas = new SelectList(marcas, marca);
+            ViewBag.Marcas = new SelectList(marcas,"Id","Nome", marca);
         }
 
         [HttpPost]

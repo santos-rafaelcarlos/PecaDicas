@@ -15,7 +15,7 @@ namespace PecaDica.App.LojaServicos {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Loja", Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Loja", Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Loja : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -172,7 +172,7 @@ namespace PecaDica.App.LojaServicos {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Produto", Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Produto", Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Produto : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -329,7 +329,7 @@ namespace PecaDica.App.LojaServicos {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Categoria", Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Categoria", Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Categoria : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -438,7 +438,7 @@ namespace PecaDica.App.LojaServicos {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Modelo", Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Modelo", Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Modelo : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -579,7 +579,7 @@ namespace PecaDica.App.LojaServicos {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Marca", Namespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Marca", Namespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Marca : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

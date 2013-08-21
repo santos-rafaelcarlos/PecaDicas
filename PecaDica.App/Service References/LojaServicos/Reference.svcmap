@@ -23,7 +23,6 @@
     <MetadataSource Address="http://localhost:63962/CRUD/LojaService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="LojaService.xsd" MetadataType="Schema" ID="606a6a72-36e4-4ebc-b22e-cdcfc60ce048" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd5" />
     <MetadataFile FileName="LojaService.wsdl" MetadataType="Wsdl" ID="f136be99-7075-44db-a95e-08ace1fe8feb" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?wsdl" />
     <MetadataFile FileName="LojaService1.xsd" MetadataType="Schema" ID="50761acc-f7ac-4c06-88e9-c19165443d00" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd3" />
     <MetadataFile FileName="LojaService2.xsd" MetadataType="Schema" ID="f2c6135e-d255-4012-9645-4d1a78a61901" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd1" />

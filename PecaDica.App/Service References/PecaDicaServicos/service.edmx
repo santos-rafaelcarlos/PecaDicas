@@ -99,7 +99,7 @@
         </ReferentialConstraint>
       </Association>
     </Schema>
-    <Schema Namespace="PecaDica.Modelo" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+    <Schema Namespace="PecaDicas.Contratos.Common" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityContainer Name="PecaDicaBDEntities" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntitySet Name="Categoria" EntityType="PecaDicaBDModel.Categoria" />
         <EntitySet Name="Loja" EntityType="PecaDicaBDModel.Loja" />

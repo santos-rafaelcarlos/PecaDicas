@@ -10,7 +10,7 @@ namespace PecaDicas.Services
     public class ProdutoService : PecaDicas.Contratos.IProdutoService
     {
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Inserir(PecaDica.Modelo.Produto item)
+        public void Inserir(Produto item)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace PecaDicas.Services
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Deletar(PecaDica.Modelo.Produto item)
+        public void Deletar(Produto item)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace PecaDicas.Services
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = "loja")]
-        public void Alterar(PecaDica.Modelo.Produto item)
+        public void Alterar(Produto item)
         {
             try
             {

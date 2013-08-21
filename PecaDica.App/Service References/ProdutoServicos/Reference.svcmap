@@ -21,7 +21,6 @@
     <MetadataSource Address="http://localhost:63962/CRUD/ProdutoService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProdutoService.xsd" MetadataType="Schema" ID="0d142b60-241f-43f8-87dd-f544e0b73d82" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ProdutoService.svc?xsd=xsd5" />
     <MetadataFile FileName="ProdutoService1.xsd" MetadataType="Schema" ID="4b42e77c-50dd-41c8-a271-1861210ecf60" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ProdutoService.svc?xsd=xsd2" />
     <MetadataFile FileName="ProdutoService2.xsd" MetadataType="Schema" ID="10470aa2-f314-4fd2-af16-1a26d5206d43" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ProdutoService.svc?xsd=xsd1" />
     <MetadataFile FileName="ProdutoService.wsdl" MetadataType="Wsdl" ID="3cd12deb-a977-43e8-8841-d77a19a6d56a" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ProdutoService.svc?wsdl" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PecaDica.Modelo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PecaDicas.Contratos.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import schemaLocation="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
   <xs:complexType name="Loja">
@@ -12,7 +12,7 @@
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="NomeUsuario" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Produto" nillable="true" type="tns:Produto" />
-          <xs:element minOccurs="0" name="ProdutoReference" nillable="true" type="q1:EntityReferenceOfProdutoTOjbUMNd" />
+          <xs:element minOccurs="0" name="ProdutoReference" nillable="true" type="q1:EntityReferenceOfProdutor2n0WSfK" />
           <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
@@ -24,12 +24,12 @@
       <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="Categoria" nillable="true" type="tns:Categoria" />
-          <xs:element minOccurs="0" name="CategoriaReference" nillable="true" type="q2:EntityReferenceOfCategoriaTOjbUMNd" />
+          <xs:element minOccurs="0" name="CategoriaReference" nillable="true" type="q2:EntityReferenceOfCategoriar2n0WSfK" />
           <xs:element minOccurs="0" name="Id" type="ser:guid" />
           <xs:element minOccurs="0" name="Loja" nillable="true" type="tns:Loja" />
-          <xs:element minOccurs="0" name="LojaReference" nillable="true" type="q2:EntityReferenceOfLojaTOjbUMNd" />
+          <xs:element minOccurs="0" name="LojaReference" nillable="true" type="q2:EntityReferenceOfLojar2n0WSfK" />
           <xs:element minOccurs="0" name="Modelo" nillable="true" type="tns:Modelo" />
-          <xs:element minOccurs="0" name="ModeloReference" nillable="true" type="q2:EntityReferenceOfModeloTOjbUMNd" />
+          <xs:element minOccurs="0" name="ModeloReference" nillable="true" type="q2:EntityReferenceOfModelor2n0WSfK" />
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
@@ -44,7 +44,7 @@
           <xs:element minOccurs="0" name="Id" type="ser:guid" />
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Produto" nillable="true" type="tns:Produto" />
-          <xs:element minOccurs="0" name="ProdutoReference" nillable="true" type="q3:EntityReferenceOfProdutoTOjbUMNd" />
+          <xs:element minOccurs="0" name="ProdutoReference" nillable="true" type="q3:EntityReferenceOfProdutor2n0WSfK" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -57,10 +57,10 @@
           <xs:element minOccurs="0" name="Ano" type="xs:int" />
           <xs:element minOccurs="0" name="Id" type="ser:guid" />
           <xs:element minOccurs="0" name="Marca" nillable="true" type="tns:Marca" />
-          <xs:element minOccurs="0" name="MarcaReference" nillable="true" type="q4:EntityReferenceOfMarcaTOjbUMNd" />
+          <xs:element minOccurs="0" name="MarcaReference" nillable="true" type="q4:EntityReferenceOfMarcar2n0WSfK" />
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Produto" nillable="true" type="tns:Produto" />
-          <xs:element minOccurs="0" name="ProdutoReference" nillable="true" type="q4:EntityReferenceOfProdutoTOjbUMNd" />
+          <xs:element minOccurs="0" name="ProdutoReference" nillable="true" type="q4:EntityReferenceOfProdutor2n0WSfK" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -72,11 +72,18 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="Id" type="ser:guid" />
           <xs:element minOccurs="0" name="Modelo" nillable="true" type="tns:Modelo" />
-          <xs:element minOccurs="0" name="ModeloReference" nillable="true" type="q5:EntityReferenceOfModeloTOjbUMNd" />
+          <xs:element minOccurs="0" name="ModeloReference" nillable="true" type="q5:EntityReferenceOfModelor2n0WSfK" />
           <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Marca" nillable="true" type="tns:Marca" />
+  <xs:complexType name="DetalhamentoFalha">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Mensagem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MensagemInterna" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalhamentoFalha" nillable="true" type="tns:DetalhamentoFalha" />
 </xs:schema>

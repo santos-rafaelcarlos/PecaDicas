@@ -4,26 +4,23 @@ using System.Linq;
 using System.Web;
 using PecaDicas.Services.DataServices;
 using System.Data;
+using PecaDicas.Contratos.Common;
+using System.Configuration;
 
 namespace PecaDicas.Services.Common
 {
     internal static class PersistenciaHelper
     {
-        private static string ConnString =
-    System.Configuration.ConfigurationManager.ConnectionStrings["PecaDicaBDEntities"].ConnectionString;
-            
-//@"metadata=res://*/DataServices.PecaDicaEntities.csdl|res://*/DataServices.PecaDicaEntities.ssdl|res://*/DataServices.PecaDicaEntities.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=.\sqlExpress;Initial Catalog=pecaDicaBD;integrated security=False;multipleactiveresultsets=True;App=EntityFramework";
-       // private const string sqlConnString = @"Server=.\sqlExpress;Database=pecaDicaBD;Integrated Security=True";
+        private static string ConnString = ConfigurationManager.ConnectionStrings["PecaDicaBDEntities"].ConnectionString;
 
-        //String.Format("metadata=res://*/ReportingEDM.csdl|res://*/ReportingEDM.ssdl|res://*/ReportingEDM.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=<<DBServerName>>;Initial Catalog=<<DBName>>;User ID=<<username>>;Password=<<password>>!;MultipleActiveResultSets=True"" provider Name=System.Data.EntityClient")
-        private static PecaDica.Modelo.PecaDicaBDEntities instance;
-        internal static PecaDica.Modelo.PecaDicaBDEntities Instance
+        private static PecaDicaBDEntities instance;
+        internal static PecaDicaBDEntities Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new PecaDica.Modelo.PecaDicaBDEntities();
-                //new System.Data.EntityClient.EntityConnection(ConnString));
+                    instance = new PecaDicaBDEntities();
+                
                 return instance;
             }
         }

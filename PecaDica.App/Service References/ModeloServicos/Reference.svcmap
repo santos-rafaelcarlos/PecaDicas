@@ -27,7 +27,6 @@
     <MetadataFile FileName="ModeloService3.xsd" MetadataType="Schema" ID="df748f1b-5666-4728-8fb4-fa6e9ab2271d" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd1" />
     <MetadataFile FileName="ModeloService.disco" MetadataType="Disco" ID="fe47a1a1-32b5-424b-b543-a0d54e0de8f2" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?disco" />
     <MetadataFile FileName="ModeloService.wsdl" MetadataType="Wsdl" ID="7ce8912c-e374-4c9e-b548-c6d172c6d0e6" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?wsdl" />
-    <MetadataFile FileName="ModeloService4.xsd" MetadataType="Schema" ID="ef9a8723-1ed7-4fe2-a029-e5f600cfbb41" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd5" />
     <MetadataFile FileName="ModeloService5.xsd" MetadataType="Schema" ID="cd1701a7-5a94-4b1d-af0f-02c1826ad40b" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd4" />
   </Metadata>
   <Extensions>

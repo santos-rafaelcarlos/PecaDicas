@@ -109,10 +109,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PecaDica.Modelo\PecaDica.Modelo.csproj">
-      <Project>{D4C684B6-1BE6-4715-8746-71450A824BC9}</Project>
-      <Name>PecaDica.Modelo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PecaDicas.Contratos\PecaDicas.Contratos.csproj">
       <Project>{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}</Project>
       <Name>PecaDicas.Contratos</Name>
