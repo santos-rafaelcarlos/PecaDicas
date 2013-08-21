@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PecaDica.App.Models;
 using PecaDica.App.PecaDicaServicos;
+using PecaDica.App.Common;
 
 namespace PecaDica.App.Controllers
 {
@@ -33,7 +34,7 @@ namespace PecaDica.App.Controllers
             {
                 ItensPorPagina = TamanhoDaPagina,
                 PaginaAtual = pagina,
-                TotalDeItems = ContextHelper.Contexto.Produto.Count(),
+                TotalDeItems = produtos.Count(),
             };
             
             return View(viewModel);
@@ -45,13 +46,11 @@ namespace PecaDica.App.Controllers
             Guid marcaID = Guid.Empty;
             Guid modeloID = Guid.Empty;
 
-            if (Guid.TryParse(form["Marcas"], out marcaID))
-                //&& (Session["Marca"] == null || (Session["Marca"] as Marca).Id != marcaID))
+            if (Guid.TryParse(form["Marcas"], out marcaID))                
                 Session["Marca"] = ContextHelper.Contexto
                     .Marca.Where(m => m.Id == marcaID).FirstOrDefault();
 
-            if (Guid.TryParse(form["Modelos"], out modeloID))
-                //&& (Session["Modelo"] == null || (Session["Modelo"] as Modelo).Id != modeloID))
+            if (Guid.TryParse(form["Modelos"], out modeloID))                
                 Session["Modelo"] = ContextHelper.Contexto
                     .Modelo.Where(m => m.Id == modeloID).FirstOrDefault();
 
@@ -63,26 +62,29 @@ namespace PecaDica.App.Controllers
             IEnumerable<Produto> produtos = new Produto[] { };
 
             if (modelo != null)
-                produtos = ContextHelper.Contexto
-                    .Produto.Where(p => p.Modelo.Id == modelo.Id);
-
+                produtos = ConverterHelper<PecaDicaServicos.Produto, Produto>
+                    .ConvertAParaB(ContextHelper.Contexto.Produto.Where(c => c.Modelo.Id == modelo.Id));
+            
             return produtos;
         }
 
         private void CarregaMarcas(Marca marca = null)
         {
-            ViewBag.Marcas = new SelectList(ContextHelper.Contexto.Marca.ToList(), "Id", "Nome", marca);
+            var marcas = ConverterHelper<PecaDicaServicos.Marca, Marca>
+                   .ConvertAParaB(ContextHelper.Contexto.Marca.AsEnumerable());
+            
+            ViewBag.Marcas = new SelectList(marcas, "Id", "Nome", marca);
         }
 
         private void CarregaModelo(Marca marca = null, Modelo modelo = null)
         {
-            var result = ContextHelper.Contexto
-                .Modelo.Where(m => m.Marca.Id == marca.Id);
+            IEnumerable<Modelo> modelos = new Modelo[] { };
 
-            if (result.Count() > 0)
-                ViewBag.Modelos = new SelectList(result, "Id", "Nome", modelo);
-            else
-                ViewBag.Modelos = new SelectList(new Modelo[] { });
+            if (marca != null)
+                modelos = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
+                    .ConvertAParaB(ContextHelper.Contexto.Modelo.Where(c => c.Marca.Id == marca.Id));
+
+            ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modelo);
         }
 
     }

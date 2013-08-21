@@ -6,7 +6,7 @@ using System.Web;
 namespace PecaDica.App
 {
     public static class ContextHelper
-    {
+    {        
         private static PecaDicaServicos.PecaDicaBDEntities contexto;
         public static PecaDicaServicos.PecaDicaBDEntities Contexto
         {

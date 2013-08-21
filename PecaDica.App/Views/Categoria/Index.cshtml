@@ -1,0 +1,41 @@
+﻿@model PecaDica.App.Models.ListaItemViewModel<PecaDica.App.CategoriaServicos.Categoria>
+
+@{
+    Layout = null;
+}
+@{ Html.RenderPartial("Menu");}
+
+<h2>Cadastro de Categorias</h2>
+<div>
+           @Html.PaginasLinks(Model.InformacaoDePaginacao, x => Url.Action("Index", new { pagina = x, Items = Model.Items }))
+</div>
+<p>
+    @Html.ActionLink("Novo", "Novo")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Items) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |            
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

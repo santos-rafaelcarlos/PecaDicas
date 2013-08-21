@@ -1,0 +1,51 @@
+﻿@model PecaDica.App.ModeloServicos.Modelo
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Modelo</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ano)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ano)
+            @Html.ValidationMessageFor(model => model.Ano)
+        </div>
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Marca)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Marcas")            
+        </div>
+
+        <p>
+            <input type="submit" value="Salvar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
