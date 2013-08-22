@@ -3,16 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDicas.Contratos", "PecaDicas.Contratos\PecaDicas.Contratos.csproj", "{9B87FBD9-D004-41E0-B2E9-B804E0C4F02A}"
 EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDicas.Services", "PecaDicas.Services\PecaDicas.Services.csproj", "{6189EA77-CE6A-40CA-841B-0B290560B433}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{E649A2FE-E9E6-4AC8-AE86-2457FE64A915}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\Pictures\DiagramaBanco.png = ..\..\..\Pictures\DiagramaBanco.png
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serviços", "Serviços", "{C8479DDA-FBD7-492B-B06F-771BD0BADC72}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{33DB18F4-9ECA-4AE9-81C7-2579E8D956BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecaDica.App", "PecaDica.App\PecaDica.App.csproj", "{66B4D373-FC56-4835-A8C1-5FA41CC20A00}"
 	ProjectSection(ProjectDependencies) = postProject
