@@ -2,11 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net;
+using PecaDica.App.Controllers;
 
 namespace PecaDica.App
 {
     public static class ContextHelper
-    {        
+    {
+        public static void SetLogiCredentials(string UserName, string Password)
+        {
+            ContextHelper.CategoriaCliente.ClientCredentials.UserName.UserName = UserName;
+            ContextHelper.CategoriaCliente.ClientCredentials.UserName.Password = Password;
+            ContextHelper.LojaCliente.ClientCredentials.UserName.UserName = UserName;
+            ContextHelper.LojaCliente.ClientCredentials.UserName.Password = Password;
+            ContextHelper.MarcaCliente.ClientCredentials.UserName.UserName = UserName;
+            ContextHelper.MarcaCliente.ClientCredentials.UserName.Password = Password;
+            ContextHelper.ModeloCliente.ClientCredentials.UserName.UserName = UserName;
+            ContextHelper.ModeloCliente.ClientCredentials.UserName.Password = Password;
+            ContextHelper.ProdutoCliente.ClientCredentials.UserName.UserName = UserName;
+            ContextHelper.ProdutoCliente.ClientCredentials.UserName.Password = Password;
+        }
+
         private static PecaDicaServicos.PecaDicaBDEntities contexto;
         public static PecaDicaServicos.PecaDicaBDEntities Contexto
         {
@@ -26,8 +42,8 @@ namespace PecaDica.App
             get
             {
                 if (lojaCliente == null)
-                    lojaCliente = new LojaServicos.LojaServiceClient();
-
+                    lojaCliente = new LojaServicos.LojaServiceClient();                   
+                
                 return lojaCliente;
             }
         }
@@ -37,8 +53,9 @@ namespace PecaDica.App
         {
             get
             {
-                if (produtoCliente == null)
+                if (produtoCliente == null)                
                     produtoCliente = new ProdutoServicos.ProdutoServiceClient();
+                 
 
                 return produtoCliente;
             }
@@ -50,7 +67,9 @@ namespace PecaDica.App
             get
             {
                 if (modeloCliente == null)
+                
                     modeloCliente = new ModeloServicos.ModeloServiceClient();
+                   
 
                 return modeloCliente;
             }
@@ -62,8 +81,9 @@ namespace PecaDica.App
             get
             {
                 if (marcaCliente == null)
+                
                     marcaCliente = new MarcaServicos.MarcaServiceClient();
-
+                   
                 return marcaCliente;
             }
         }
@@ -74,8 +94,9 @@ namespace PecaDica.App
             get
             {
                 if (categoriaCliente == null)
+                
                     categoriaCliente = new CategoriaServicos.CategoriaServiceClient();
-
+                   
                 return categoriaCliente;
             }
         }

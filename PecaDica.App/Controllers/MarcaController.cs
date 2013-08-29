@@ -44,7 +44,7 @@ namespace PecaDica.App.Controllers
 
         [HttpPost]
         public ActionResult Novo(Marca item)
-        {
+        {           
             ContextHelper.MarcaCliente.Inserir(item);
             return RedirectToAction("Index");
         }

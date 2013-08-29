@@ -75,6 +75,8 @@ namespace PecaDica.App.Controllers
             {
                 if (authenticationService.LogOn(model.UserName, model.Password, model.RememberMe))
                 {
+                    ContextHelper.SetLogiCredentials(model.UserName, model.Password);
+
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
