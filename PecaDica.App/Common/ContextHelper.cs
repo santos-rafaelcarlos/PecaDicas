@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Net;
 using PecaDica.App.Controllers;
+using System.ServiceModel.Security;
 
 namespace PecaDica.App
 {
@@ -13,6 +14,7 @@ namespace PecaDica.App
         {
             ContextHelper.CategoriaCliente.ClientCredentials.UserName.UserName = UserName;
             ContextHelper.CategoriaCliente.ClientCredentials.UserName.Password = Password;
+            
             ContextHelper.LojaCliente.ClientCredentials.UserName.UserName = UserName;
             ContextHelper.LojaCliente.ClientCredentials.UserName.Password = Password;
             ContextHelper.MarcaCliente.ClientCredentials.UserName.UserName = UserName;
