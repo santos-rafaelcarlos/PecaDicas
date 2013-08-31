@@ -10,9 +10,8 @@ using System.Security.Permissions;
 
 namespace PecaDicas.Services
 {    
-    public class CriptografarService : PecaDicas.Contratos.Common.ICriptografia
+    public class CriptografarService : PecaDicas.Contratos.ICriptografia
     {
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
         public string Criptografar(string text)
         {
             try
@@ -36,8 +35,7 @@ namespace PecaDicas.Services
                 });
             }
         }
-
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        
         public string Descriptografar(string text)
         {
             try

@@ -3,19 +3,19 @@ using System.Security.Permissions;
 using System.ServiceModel;
 using PecaDicas.Contratos.Common;
 using PecaDicas.Services.Common;
-using PecaDicas.Services.DataServices;
-using System.Collections.Generic;
-using System.Data;
 
 namespace PecaDicas.Services
 {    
-    public class MarcaService : PecaDicas.Contratos.IMarcaService
+    public class MarcaService : Contratos.IMarcaService
     {
         [PrincipalPermission(SecurityAction.Demand, Role="loja")]
         public void Inserir(Marca item)            
         {
             try
             {
+                if (item.Id == Guid.Empty)
+                    item.Id = Guid.NewGuid();
+
                 PersistenciaHelper.Instance.AddToMarca(item);
                 PersistenciaHelper.Instance.SaveChanges();
             }            

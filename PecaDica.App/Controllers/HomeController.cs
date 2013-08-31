@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using PecaDica.App.Models;
-using PecaDica.App.PecaDicaServicos;
+using PecaDica.App.DataServ;
 using PecaDica.App.Common;
 
 namespace PecaDica.App.Controllers
@@ -12,62 +11,61 @@ namespace PecaDica.App.Controllers
     public class HomeController : Controller
     {
         public int TamanhoDaPagina = 20;
-        
+
         //
         // GET: /Home/        
         [HttpGet]
         public ActionResult Index(int pagina = 1)
         {
-            ListaItemViewModel<Produto>
-                viewModel = new ListaItemViewModel<Produto>();
+            ListaItemViewModel<ProdutoModel>
+                viewModel = new ListaItemViewModel<ProdutoModel>();
 
-            CarregaMarcas(Session["Marca"] as Marca);
+            CarregaMarcas(Session["Marca"] != null ? Session["Marca"].ToString() : null);
             if (Session["Marca"] != null)
-                CarregaModelo(Session["Marca"] as Marca, Session["Modelo"] as Modelo);
+                CarregaModelo(Session["Marca"].ToString(), Session["Modelo"] != null ? Session["Modelo"].ToString() : null);
             else
                 ViewBag.Modelos = new SelectList(new Modelo[] { });
 
-            IEnumerable<Produto> produtos = CarregaProduto(Session["Modelo"] as Modelo);
+            IEnumerable<Produto> produtos = CarregaProduto(Session["Modelo"] != null ? Session["Modelo"].ToString() : null);
 
-            viewModel.Items = produtos;
+            viewModel.Items = ConverterHelper<DataServ.Produto, ProdutoModel>.ConvertAParaB(produtos);
+
             viewModel.InformacaoDePaginacao = new InformacaoDePaginacao()
             {
                 ItensPorPagina = TamanhoDaPagina,
                 PaginaAtual = pagina,
                 TotalDeItems = produtos.Count(),
             };
-            
+
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult Index(ListaItemViewModel<Produto> viewModel, FormCollection form)
+        public ActionResult Index(ListaItemViewModel<ProdutoModel> viewModel, FormCollection form)
         {
-            Guid marcaID = Guid.Empty;
-            Guid modeloID = Guid.Empty;
+            Guid marcaId;
+            Guid modeloId;
 
-            if (Guid.TryParse(form["Marcas"], out marcaID))                
-                Session["Marca"] = ContextHelper.Contexto
-                    .Marca.Where(m => m.Id == marcaID).FirstOrDefault();
+            if (Guid.TryParse(form["Marcas"], out marcaId))
+                Session["Marca"] = marcaId;
 
-            if (Guid.TryParse(form["Modelos"], out modeloID))                
-                Session["Modelo"] = ContextHelper.Contexto
-                    .Modelo.Where(m => m.Id == modeloID).FirstOrDefault();
+            if (Guid.TryParse(form["Modelos"], out modeloId))
+                Session["Modelo"] = modeloId;
 
             return RedirectToAction("Index", viewModel);
         }
 
-        private IEnumerable<Produto> CarregaProduto(Modelo modelo = null)
+        private IEnumerable<Produto> CarregaProduto(string modeloId = null)
         {
             IEnumerable<Produto> produtos = new Produto[] { };
 
-            if (modelo != null)
-                produtos = ContextHelper.Contexto.Produto.Where(c => c.Modelo.Id == modelo.Id);
-            
+            if (modeloId != null)
+                produtos = ContextHelper.Contexto.Produto.Where(c => c.ModeloID == Guid.Parse(modeloId));
+
             return produtos;
         }
 
-        private void CarregaMarcas(Marca marca = null)
+        private void CarregaMarcas(string marcaId = null)
         {
             var marcas = new Marca[] { };
             try
@@ -79,17 +77,19 @@ namespace PecaDica.App.Controllers
                 marcas = new Marca[] { };
             }
 
-            ViewBag.Marcas = new SelectList(marcas, "Id", "Nome", marca);
+            ViewBag.Marcas = new SelectList(marcas, "Id", "Nome", marcaId == null ? null :
+                ContextHelper.Contexto.Marca.Where(m => m.Id == Guid.Parse(marcaId)).FirstOrDefault());
         }
 
-        private void CarregaModelo(Marca marca = null, Modelo modelo = null)
+        private void CarregaModelo(string marcaId = null, string modeloId = null)
         {
             IEnumerable<Modelo> modelos = new Modelo[] { };
 
-            if (marca != null)
-                modelos = ContextHelper.Contexto.Modelo.Where(c => c.Marca.Id == marca.Id);
+            if (marcaId != null)
+                modelos = ContextHelper.Contexto.Modelo.Where(c => c.MarcaID== Guid.Parse(marcaId));
 
-            ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modelo);
+            ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modeloId == null ? null :
+                ContextHelper.Contexto.Modelo.Where(m => m.Id == Guid.Parse(modeloId)).FirstOrDefault());
         }
 
     }

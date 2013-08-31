@@ -4,7 +4,6 @@ using System.ServiceModel;
 using System.Web.Security;
 using PecaDicas.Contratos.Common;
 using PecaDicas.Services.Common;
-using PecaDicas.Services.DataServices;
 
 namespace PecaDicas.Services
 {
@@ -15,6 +14,10 @@ namespace PecaDicas.Services
         {
             try
             {
+
+                if (item.Id == Guid.Empty)
+                    item.Id = Guid.NewGuid();
+
                 Membership.CreateUser(item.NomeUsuario, item.Senha, item.Email);
                 AtribuirRoleAUsuario(item.NomeUsuario);
 
@@ -71,12 +74,10 @@ namespace PecaDicas.Services
 
         private static void AtribuirRoleAUsuario(string NomeUsuario)
         {
-            SqlRoleProvider roleProvider = new SqlRoleProvider();
+            if (!Roles.RoleExists("loja"))
+                Roles.CreateRole("loja");
 
-            if (!roleProvider.RoleExists("loja"))
-                roleProvider.CreateRole("loja");
-
-            roleProvider.AddUsersToRoles(new string[] { NomeUsuario }, new string[] { "loja" });
+            Roles.AddUsersToRoles(new string[] { NomeUsuario }, new string[] { "loja" });
 
         }
     }

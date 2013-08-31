@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using PecaDica.App.Models;
-using PecaDica.App.CategoriaServicos;
+using PecaDica.App.CatServ;
 using PecaDica.App.Common;
+using PecaDica.App.Models;
 
 namespace PecaDica.App.Controllers
 {
@@ -17,7 +15,7 @@ namespace PecaDica.App.Controllers
         public int TamanhoDaPagina = 20;
         public ActionResult Index(int pagina = 1)
         {
-            var categorias = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
+            var categorias = ConverterHelper<DataServ.Categoria, Categoria>
                     .ConvertAParaB(ContextHelper.Contexto.Categoria.AsEnumerable());
             
             ListaItemViewModel<Categoria>
@@ -44,14 +42,14 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Novo(Categoria item)
         {
-            ContextHelper.CategoriaCliente.Inserir(item);
+            ContextHelper.InsertCategoria(item);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Editar(Guid id)
         {
-            Categoria item = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
+            Categoria item = ConverterHelper<DataServ.Categoria, Categoria>
                     .ConvertAParaB(ContextHelper.Contexto.Categoria.Where(c => c.Id == id).FirstOrDefault());
             return View(item);
         }
@@ -59,14 +57,14 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Editar(Categoria item)
         {
-            ContextHelper.CategoriaCliente.Alterar(item);
+            ContextHelper.AlterarCategoria(item);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Delete(Guid id)
         {
-            Categoria item = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
+            Categoria item = ConverterHelper<DataServ.Categoria, Categoria>
                     .ConvertAParaB(ContextHelper.Contexto.Categoria.Where(c => c.Id == id).FirstOrDefault());
             return View(item);
         }
@@ -74,7 +72,7 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Delete(Categoria item)
         {
-            ContextHelper.CategoriaCliente.Deletar(item);
+            ContextHelper.DeletarCategoria(item);
             return RedirectToAction("Index");
         }
     }

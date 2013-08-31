@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using PecaDica.App.ProdutoServicos;
-using PecaDica.App.Models;
 using PecaDica.App.Common;
+using PecaDica.App.Models;
+using PecaDica.App.ProdutoServ;
+using PecaDica.App.LojaServ;
 
 namespace PecaDica.App.Controllers
 {
@@ -14,30 +13,29 @@ namespace PecaDica.App.Controllers
     {
         //
         // GET: /Produto/
-        private Loja Loja = null;
+        private Guid LojaID = Guid.Empty;
 
         public ProdutoController()
         {
             string userName = System.Web.Security.Membership.GetUser().UserName;
 
-            Loja = ConverterHelper<PecaDicaServicos.Loja, Loja>
-                    .ConvertAParaB(ContextHelper.Contexto.Loja.Where(c =>string.Compare(c.NomeUsuario,userName,true) == 0)
-                    .FirstOrDefault());
+            LojaID = ContextHelper.Contexto.Loja
+                .Where(c => System.String.Compare(c.NomeUsuario, userName, System.StringComparison.OrdinalIgnoreCase) == 0).FirstOrDefault().Id;
             
         }
 
         public int TamanhoDaPagina = 20;
         public ActionResult Index(int pagina = 1)
         {
-            var produtos = ConverterHelper<PecaDicaServicos.Produto, Produto>
+            var produtos = ConverterHelper<DataServ.Produto, ProdutoModel>
                     .ConvertAParaB(ContextHelper.Contexto.Produto
-                    .Where(c => c.Loja.Id == Loja.Id));
-            
+                    .Where(c => c.LojaID == LojaID));
 
-            ListaItemViewModel<Produto>
-               viewModel = new ListaItemViewModel<Produto>()
+
+            ListaItemViewModel<ProdutoModel>
+               viewModel = new ListaItemViewModel<ProdutoModel>()
                {
-                   Items =produtos,
+                   Items = produtos,
                    InformacaoDePaginacao = new InformacaoDePaginacao()
                    {
                        ItensPorPagina = TamanhoDaPagina,
@@ -60,85 +58,81 @@ namespace PecaDica.App.Controllers
 
 
         [HttpPost]
-        public ActionResult Novo(Produto item,FormCollection form)
+        public ActionResult Novo(ProdutoModel item,FormCollection form)
         {
-            Guid categoriaID = Guid.Empty;
-            Guid modeloID = Guid.Empty;
+            Guid categoriaId;
+            Guid modeloId;
 
-            if (Guid.TryParse(form["Categorias"], out categoriaID))
-                item.Categoria = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
-                    .ConvertAParaB(ContextHelper.Contexto.Categoria.Where(c => c.Id == categoriaID).FirstOrDefault());
-            
-            if (Guid.TryParse(form["Modelos"], out modeloID))
-                item.Modelo = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
-                    .ConvertAParaB(ContextHelper.Contexto.Modelo.Where(c => c.Id == modeloID).FirstOrDefault());
-            
-            item.Loja =Loja;
+            if (Guid.TryParse(form["Categorias"], out categoriaId))
+                item.CategoriaID = categoriaId;
 
-            ContextHelper.ProdutoCliente.Inserir(item);
+            if (Guid.TryParse(form["Modelos"], out modeloId))
+                item.ModeloID = modeloId;
+
+            item.LojaID = LojaID;
+
+            ContextHelper.InsertProduto(ConverterHelper<ProdutoModel, Produto>.ConvertAParaB(item));
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Editar(Guid id)
         {
-            Produto item = ConverterHelper<PecaDicaServicos.Produto, Produto>
+            Produto item = ConverterHelper<DataServ.Produto, Produto>
                     .ConvertAParaB(ContextHelper.Contexto.Produto.Where(c => c.Id == id).FirstOrDefault());
-            
-            CarregaModelo(item.Modelo);
-            CarregaCategoria(item.Categoria);
+
+            CarregaModelo(item.ModeloID != null ? item.ModeloID.ToString() : null);
+            CarregaCategoria(item.CategoriaID != null ? item.CategoriaID.ToString() : null);
 
             return View(item);
         }
 
         [HttpPost]
-        public ActionResult Editar(Produto item, FormCollection form)
+        public ActionResult Editar(ProdutoModel item, FormCollection form)
         {
-            Guid categoriaID = Guid.Empty;
-            Guid modeloID = Guid.Empty;
+            Guid categoriaId;
+            Guid modeloId;
 
-            if (Guid.TryParse(form["Categorias"], out categoriaID))
-                item.Categoria = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
-                    .ConvertAParaB(ContextHelper.Contexto.Categoria.Where(c => c.Id == categoriaID).FirstOrDefault());
+            if (Guid.TryParse(form["Categorias"], out categoriaId))
+                item.CategoriaID = categoriaId;
 
-            if (Guid.TryParse(form["Modelos"], out modeloID))
-                item.Modelo = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
-                    .ConvertAParaB(ContextHelper.Contexto.Modelo.Where(c => c.Id == modeloID).FirstOrDefault());
+            if (Guid.TryParse(form["Modelos"], out modeloId))
+                item.ModeloID = modeloId;
 
-            ContextHelper.ProdutoCliente.Alterar(item);
+            ContextHelper.AlterarProduto(ConverterHelper<ProdutoModel, Produto>.ConvertAParaB(item));
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Delete(Guid id)
         {
-            Produto item = ConverterHelper<PecaDicaServicos.Produto, Produto>
+            Produto item = ConverterHelper<DataServ.Produto, Produto>
                     .ConvertAParaB(ContextHelper.Contexto.Produto.Where(c => c.Id == id).FirstOrDefault());
             
             return View(item);
         }
 
         [HttpPost]        
-        public ActionResult Delete(Produto item)
+        public ActionResult Delete(ProdutoModel item)
         {
-            ContextHelper.ProdutoCliente.Deletar(item);
+            ContextHelper.DeletarProduto(ConverterHelper<ProdutoModel, Produto>.ConvertAParaB(item));
             return RedirectToAction("Index");
         }
 
-        private void CarregaModelo(Modelo modelo = null)
+        private void CarregaModelo(string modeloId = null)
         {
-            var modelos = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
-                    .ConvertAParaB(ContextHelper.Contexto.Modelo.AsEnumerable());
+            var modelos = ContextHelper.Contexto.Modelo.AsEnumerable();
 
-            ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modelo);
+            ViewBag.Modelos = new SelectList(modelos, "Id", "Nome", modeloId == null ? null :
+                ContextHelper.Contexto.Modelo.Where(m => m.Id == Guid.Parse(modeloId)).FirstOrDefault());
         }
 
-        private void CarregaCategoria(Categoria categoria = null)
+        private void CarregaCategoria(string categoriaId = null)
         {
-            var categorias = ConverterHelper<PecaDicaServicos.Categoria, Categoria>
-                    .ConvertAParaB(ContextHelper.Contexto.Categoria.AsEnumerable());
+            var categorias =ContextHelper.Contexto.Categoria.AsEnumerable();
 
-            ViewBag.Categorias = new SelectList(categorias,"Id","Nome", categoria);
+            ViewBag.Categorias = new SelectList(categorias, "Id", "Nome", categoriaId == null ? null :
+                ContextHelper.Contexto.Categoria.Where(m => m.Id == Guid.Parse(categoriaId)).FirstOrDefault());
         }
     }
 }

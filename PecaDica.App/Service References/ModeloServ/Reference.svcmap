@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fbafa5fb-db84-4c6a-96aa-55acdd105c01" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63962/CRUD/ModeloService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ModeloService.xsd" MetadataType="Schema" ID="8917dde5-c5cc-4896-9cd8-7aac5c9f47d5" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ModeloService1.xsd" MetadataType="Schema" ID="35d45c6e-8336-44c4-bb50-7aa61286c836" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ModeloService2.xsd" MetadataType="Schema" ID="c6dcd81d-5572-44e6-b0fd-1f3dfb3f9201" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ModeloService3.xsd" MetadataType="Schema" ID="d39398e7-2d3c-47f1-82c2-8dec5cdea454" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ModeloService.disco" MetadataType="Disco" ID="89ec9a59-3c98-4039-83d2-9c132b0e75ef" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?disco" />
+    <MetadataFile FileName="ModeloService.wsdl" MetadataType="Wsdl" ID="18e06996-c72f-4504-85d8-a91cf359636e" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?wsdl" />
+    <MetadataFile FileName="ModeloService4.xsd" MetadataType="Schema" ID="f41b735c-6520-48f1-b875-902e483f24d1" SourceId="1" SourceUrl="http://localhost:63962/CRUD/ModeloService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

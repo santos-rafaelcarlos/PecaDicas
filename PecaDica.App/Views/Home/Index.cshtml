@@ -1,4 +1,4 @@
-﻿@model PecaDica.App.Models.ListaItemViewModel<PecaDica.App.PecaDicaServicos.Produto>
+﻿@model PecaDica.App.Models.ListaItemViewModel<PecaDica.App.Models.ProdutoModel>
 
 @{
     Layout = null;
@@ -55,13 +55,15 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Loja)
         </th> 
+        
+        <th>
+          Categoria
+        </th> 
+        
+        <th>
+            Modelo
+        </th>       
     </tr>
 
 @foreach (var item in Model.Items)
@@ -70,15 +72,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
         </td>               
-        <td>       
-        @if (item.Categoria != null)
-        {
-            @Html.DisplayFor(modelItem => item.Categoria.Nome)            }
+        <td> 
+            @Html.DisplayFor(modelItem => item.CategoriaName)            
         </td>
         <td>
-        @if (item.Loja != null)
-        {
-            @Html.DisplayFor(modelItem => item.Loja.Nome)}
+            @Html.DisplayFor(modelItem => item.ModeloName)
         </td>
     </tr>
 }

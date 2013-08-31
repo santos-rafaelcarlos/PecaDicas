@@ -1,27 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using PecaDica.App.Models;
-using PecaDica.App.ModeloServicos;
 using PecaDica.App.Common;
+using PecaDica.App.ModeloServ;
+using PecaDica.App.Models;
 
 namespace PecaDica.App.Controllers
 {
     [Authorize(Roles = "loja")]
     public class ModeloController : Controller
     {
+
         //
         // GET: /Modelo/
         public int TamanhoDaPagina = 20;
         public ActionResult Index(int pagina = 1)
         {
-            var modelos = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
+            var modelos = ConverterHelper<DataServ.Modelo, ModeloModel>
                    .ConvertAParaB(ContextHelper.Contexto.Modelo.AsEnumerable());
-            
-            ListaItemViewModel<Modelo>
-                viewModel = new ListaItemViewModel<Modelo>()
+
+            var viewModel = new ListaItemViewModel<ModeloModel>()
                 {
                     Items = modelos,
                     InformacaoDePaginacao = new InformacaoDePaginacao()
@@ -42,63 +40,62 @@ namespace PecaDica.App.Controllers
             return View();
         }
 
-        private void CarregaMarca(Marca marca= null)
+        private void CarregaMarca(string marcaId= null)
         {
-            var marcas = ConverterHelper<PecaDicaServicos.Marca, Marca>
-                   .ConvertAParaB(ContextHelper.Contexto.Marca.AsEnumerable());
+            var marcas = ContextHelper.Contexto.Marca.AsEnumerable();
 
-            ViewBag.Marcas = new SelectList(marcas,"Id","Nome", marca);
+            ViewBag.Marcas = new SelectList(marcas, "Id", "Nome", marcaId == null ? null :
+                ContextHelper.Contexto.Marca.Where(m => m.Id == Guid.Parse(marcaId)).FirstOrDefault());
         }
 
         [HttpPost]
-        public ActionResult Novo(Modelo item,FormCollection form)
+        public ActionResult Novo(ModeloModel item,FormCollection form)
         {
             Guid marcaID = Guid.Empty;
             
+            //todo: o que vem ñ é o guid
             if (Guid.TryParse(form["Marcas"], out marcaID))
-                item.Marca = ConverterHelper<PecaDicaServicos.Marca, Marca>
-                    .ConvertAParaB(ContextHelper.Contexto.Marca.Where(c => c.Id == marcaID).FirstOrDefault());
+                item.MarcaID = marcaID;
 
-            ContextHelper.ModeloCliente.Inserir(item);
+            ContextHelper.InsertModelo(ConverterHelper<ModeloModel, Modelo>.ConvertAParaB(item));
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Editar(Guid id)
         {
-            Modelo item = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
+            Modelo item = ConverterHelper<DataServ.Modelo, Modelo>
                     .ConvertAParaB(ContextHelper.Contexto.Modelo.Where(c => c.Id == id).FirstOrDefault());
 
-            CarregaMarca(item.Marca);
+            CarregaMarca(item.MarcaID != null ? item.MarcaID.ToString() : null);
             return View(item);
         }
 
         [HttpPost]
-        public ActionResult Editar(Modelo item, FormCollection form)
+        public ActionResult Editar(ModeloModel item, FormCollection form)
         {
             Guid marcaID = Guid.Empty;
 
             if (Guid.TryParse(form["Marcas"], out marcaID))
-                item.Marca = ConverterHelper<PecaDicaServicos.Marca, Marca>
-                    .ConvertAParaB(ContextHelper.Contexto.Marca.Where(c => c.Id == marcaID).FirstOrDefault());
+                item.MarcaID = marcaID;
 
-            ContextHelper.ModeloCliente.Alterar(item);
+            ContextHelper.AlterarModelo(ConverterHelper<ModeloModel, Modelo>.ConvertAParaB(item));
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Delete(Guid id)
         {
-            Modelo item = ConverterHelper<PecaDicaServicos.Modelo, Modelo>
+            Modelo item = ConverterHelper<DataServ.Modelo, Modelo>
                     .ConvertAParaB(ContextHelper.Contexto.Modelo.Where(c => c.Id == id).FirstOrDefault());
 
             return View(item);
         }
 
         [HttpPost]
-        public ActionResult Delete(Modelo item)
+        public ActionResult Delete(ModeloModel item)
         {
-            ContextHelper.ModeloCliente.Deletar(item);
+            ContextHelper.DeletarModelo(ConverterHelper<ModeloModel, Modelo>.ConvertAParaB(item));
             return RedirectToAction("Index");
         }
     }

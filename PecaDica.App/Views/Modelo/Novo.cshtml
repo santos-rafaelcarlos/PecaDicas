@@ -1,4 +1,4 @@
-﻿@model PecaDica.App.ModeloServicos.Modelo
+﻿@model PecaDica.App.ModeloServ.Modelo
 
 @{
     ViewBag.Title = "Novo";
@@ -28,7 +28,7 @@
             @Html.ValidationMessageFor(model => model.Ano)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.Marca)
+            Marca
         </div>
         <div class="editor-field">
             @Html.DropDownList("Marcas")            

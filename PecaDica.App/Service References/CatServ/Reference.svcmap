@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bcfd878a-413b-42d9-bef2-674112cdcc20" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63962/CRUD/CategoriaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CategoriaService.xsd" MetadataType="Schema" ID="8fb6f50e-91fa-4275-a98c-54ebef932c88" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CategoriaService.disco" MetadataType="Disco" ID="df5b7b02-6b09-4e89-b298-69d3debf304d" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?disco" />
+    <MetadataFile FileName="CategoriaService.wsdl" MetadataType="Wsdl" ID="f44e9ce1-e612-4930-81bf-3b0aca149661" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?wsdl" />
+    <MetadataFile FileName="CategoriaService1.xsd" MetadataType="Schema" ID="222f9858-8488-4a9f-b0b6-1641f8eda4b9" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CategoriaService2.xsd" MetadataType="Schema" ID="915604b6-baf6-4a43-97c5-89086c7bf000" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CategoriaService3.xsd" MetadataType="Schema" ID="0dc79dad-95ec-47da-b30c-166045a59db9" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CategoriaService4.xsd" MetadataType="Schema" ID="84cb65d1-ffea-4e3e-ae1e-48f5427f1073" SourceId="1" SourceUrl="http://localhost:63962/CRUD/CategoriaService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

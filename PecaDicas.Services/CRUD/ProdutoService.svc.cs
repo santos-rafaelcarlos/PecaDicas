@@ -14,7 +14,10 @@ namespace PecaDicas.Services
         {
             try
             {
-                PersistenciaHelper.Instance.AddToProduto(item);
+
+                if (item.Id == Guid.Empty)
+                    item.Id = Guid.NewGuid();
+                PersistenciaHelper.Instance.AddToProduto(item);                
                 PersistenciaHelper.Instance.SaveChanges();
             }            
             catch (Exception ex)

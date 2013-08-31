@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="15d1089a-297d-45f7-a42f-85782b7d4efa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63962/CRUD/LojaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LojaService.xsd" MetadataType="Schema" ID="7c13fc6e-79fb-4249-ad20-c542654a954b" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LojaService1.xsd" MetadataType="Schema" ID="a5711f98-8339-4dea-9b0f-b2719a321df2" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LojaService2.xsd" MetadataType="Schema" ID="6a4d6c6e-b154-48e9-97ec-91b427d89e6d" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LojaService3.xsd" MetadataType="Schema" ID="31fec466-5fcb-42bd-a690-2ad3588b008b" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LojaService.disco" MetadataType="Disco" ID="d78846eb-a1db-4fcd-b20e-9ac9c802431e" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?disco" />
+    <MetadataFile FileName="LojaService.wsdl" MetadataType="Wsdl" ID="2f85867d-0e2e-4685-9558-29e0eae08474" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?wsdl" />
+    <MetadataFile FileName="LojaService4.xsd" MetadataType="Schema" ID="af76720a-704a-4809-8e52-ca735b473215" SourceId="1" SourceUrl="http://localhost:63962/CRUD/LojaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

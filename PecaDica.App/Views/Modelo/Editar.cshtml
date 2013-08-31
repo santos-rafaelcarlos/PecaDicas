@@ -1,4 +1,4 @@
-﻿@model PecaDica.App.ModeloServicos.Modelo
+﻿@model PecaDica.App.ModeloServ.Modelo
 
 @{
     ViewBag.Title = "Editar";
@@ -30,7 +30,7 @@
             @Html.ValidationMessageFor(model => model.Ano)
         </div>
          <div class="editor-label">
-            @Html.LabelFor(model => model.Marca)
+           Marca
         </div>
         <div class="editor-field">
             @Html.DropDownList("Marcas")            
@@ -46,6 +46,3 @@
     @Html.ActionLink("Voltar", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

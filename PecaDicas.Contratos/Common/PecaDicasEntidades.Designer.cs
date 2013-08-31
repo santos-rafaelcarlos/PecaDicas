@@ -8,23 +8,15 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-#region EDM Relationship Metadata
-
-[assembly: EdmRelationshipAttribute("PecaDicaBDModel", "FK_Produto_Categoria", "Categoria", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PecaDicas.Contratos.Common.Categoria), "Produto", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PecaDicas.Contratos.Common.Produto), true)]
-[assembly: EdmRelationshipAttribute("PecaDicaBDModel", "FK_Produto_Loja", "Loja", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PecaDicas.Contratos.Common.Loja), "Produto", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PecaDicas.Contratos.Common.Produto), true)]
-[assembly: EdmRelationshipAttribute("PecaDicaBDModel", "FK_Modelo_Marca", "Marca", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PecaDicas.Contratos.Common.Marca), "Modelo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PecaDicas.Contratos.Common.Modelo), true)]
-[assembly: EdmRelationshipAttribute("PecaDicaBDModel", "FK_Produto_Modelo", "Modelo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PecaDicas.Contratos.Common.Modelo), "Produto", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PecaDicas.Contratos.Common.Produto), true)]
-
-#endregion
-
 namespace PecaDicas.Contratos.Common
 {
     #region Contexts
@@ -154,6 +146,7 @@ namespace PecaDicas.Contratos.Common
         private ObjectSet<Produto> _Produto;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -197,11 +190,11 @@ namespace PecaDicas.Contratos.Common
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -230,6 +223,7 @@ namespace PecaDicas.Contratos.Common
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -308,48 +302,8 @@ namespace PecaDicas.Contratos.Common
         partial void OnDescricaoChanged();
 
         #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Produto_Categoria", "Produto")]
-        public Produto Produto
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Categoria", "Produto").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Categoria", "Produto").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Produto> ProdutoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Categoria", "Produto");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Categoria", "Produto", value);
-                }
-            }
-        }
 
-        #endregion
+    
     }
     
     /// <summary>
@@ -384,6 +338,7 @@ namespace PecaDicas.Contratos.Common
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -534,48 +489,8 @@ namespace PecaDicas.Contratos.Common
         partial void OnEnderecoChanged();
 
         #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Produto_Loja", "Produto")]
-        public Produto Produto
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Loja", "Produto").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Loja", "Produto").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Produto> ProdutoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Loja", "Produto");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Loja", "Produto", value);
-                }
-            }
-        }
 
-        #endregion
+    
     }
     
     /// <summary>
@@ -602,6 +517,7 @@ namespace PecaDicas.Contratos.Common
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -656,48 +572,8 @@ namespace PecaDicas.Contratos.Common
         partial void OnNomeChanged();
 
         #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Modelo_Marca", "Modelo")]
-        public Modelo Modelo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Modelo>("PecaDicaBDModel.FK_Modelo_Marca", "Modelo").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Modelo>("PecaDicaBDModel.FK_Modelo_Marca", "Modelo").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Modelo> ModeloReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Modelo>("PecaDicaBDModel.FK_Modelo_Marca", "Modelo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Modelo>("PecaDicaBDModel.FK_Modelo_Marca", "Modelo", value);
-                }
-            }
-        }
 
-        #endregion
+    
     }
     
     /// <summary>
@@ -726,6 +602,7 @@ namespace PecaDicas.Contratos.Common
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -802,88 +679,34 @@ namespace PecaDicas.Contratos.Common
         private global::System.Int32 _Ano;
         partial void OnAnoChanging(global::System.Int32 value);
         partial void OnAnoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> MarcaID
+        {
+            get
+            {
+                return _MarcaID;
+            }
+            set
+            {
+                OnMarcaIDChanging(value);
+                ReportPropertyChanging("MarcaID");
+                _MarcaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MarcaID");
+                OnMarcaIDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _MarcaID;
+        partial void OnMarcaIDChanging(Nullable<global::System.Guid> value);
+        partial void OnMarcaIDChanged();
 
         #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Modelo_Marca", "Marca")]
-        public Marca Marca
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Marca>("PecaDicaBDModel.FK_Modelo_Marca", "Marca").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Marca>("PecaDicaBDModel.FK_Modelo_Marca", "Marca").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Marca> MarcaReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Marca>("PecaDicaBDModel.FK_Modelo_Marca", "Marca");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Marca>("PecaDicaBDModel.FK_Modelo_Marca", "Marca", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Produto_Modelo", "Produto")]
-        public Produto Produto
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Modelo", "Produto").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Modelo", "Produto").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Produto> ProdutoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Modelo", "Produto");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Produto>("PecaDicaBDModel.FK_Produto_Modelo", "Produto", value);
-                }
-            }
-        }
 
-        #endregion
+    
     }
     
     /// <summary>
@@ -910,6 +733,7 @@ namespace PecaDicas.Contratos.Common
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -962,128 +786,85 @@ namespace PecaDicas.Contratos.Common
         private global::System.String _Nome;
         partial void OnNomeChanging(global::System.String value);
         partial void OnNomeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> CategoriaID
+        {
+            get
+            {
+                return _CategoriaID;
+            }
+            set
+            {
+                OnCategoriaIDChanging(value);
+                ReportPropertyChanging("CategoriaID");
+                _CategoriaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CategoriaID");
+                OnCategoriaIDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _CategoriaID;
+        partial void OnCategoriaIDChanging(Nullable<global::System.Guid> value);
+        partial void OnCategoriaIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> LojaID
+        {
+            get
+            {
+                return _LojaID;
+            }
+            set
+            {
+                OnLojaIDChanging(value);
+                ReportPropertyChanging("LojaID");
+                _LojaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LojaID");
+                OnLojaIDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _LojaID;
+        partial void OnLojaIDChanging(Nullable<global::System.Guid> value);
+        partial void OnLojaIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> ModeloID
+        {
+            get
+            {
+                return _ModeloID;
+            }
+            set
+            {
+                OnModeloIDChanging(value);
+                ReportPropertyChanging("ModeloID");
+                _ModeloID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ModeloID");
+                OnModeloIDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _ModeloID;
+        partial void OnModeloIDChanging(Nullable<global::System.Guid> value);
+        partial void OnModeloIDChanged();
 
         #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Produto_Categoria", "Categoria")]
-        public Categoria Categoria
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categoria>("PecaDicaBDModel.FK_Produto_Categoria", "Categoria").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categoria>("PecaDicaBDModel.FK_Produto_Categoria", "Categoria").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Categoria> CategoriaReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categoria>("PecaDicaBDModel.FK_Produto_Categoria", "Categoria");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Categoria>("PecaDicaBDModel.FK_Produto_Categoria", "Categoria", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Produto_Loja", "Loja")]
-        public Loja Loja
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Loja>("PecaDicaBDModel.FK_Produto_Loja", "Loja").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Loja>("PecaDicaBDModel.FK_Produto_Loja", "Loja").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Loja> LojaReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Loja>("PecaDicaBDModel.FK_Produto_Loja", "Loja");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Loja>("PecaDicaBDModel.FK_Produto_Loja", "Loja", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PecaDicaBDModel", "FK_Produto_Modelo", "Modelo")]
-        public Modelo Modelo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Modelo>("PecaDicaBDModel.FK_Produto_Modelo", "Modelo").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Modelo>("PecaDicaBDModel.FK_Produto_Modelo", "Modelo").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Modelo> ModeloReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Modelo>("PecaDicaBDModel.FK_Produto_Modelo", "Modelo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Modelo>("PecaDicaBDModel.FK_Produto_Modelo", "Modelo", value);
-                }
-            }
-        }
 
-        #endregion
+    
     }
 
     #endregion
+
     
 }

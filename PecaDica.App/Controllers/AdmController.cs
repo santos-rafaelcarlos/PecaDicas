@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using PecaDica.App.Models;
-using PecaDica.App.LojaServicos;
 using PecaDica.App.Common;
+using PecaDica.App.LojaServ;
+using PecaDica.App.Models;
 
 namespace PecaDica.App.Controllers
 {
@@ -33,7 +32,7 @@ namespace PecaDica.App.Controllers
 
         private IEnumerable<Loja> Carregalojas()
         {
-            return ConverterHelper<PecaDicaServicos.Loja, Loja>
+            return ConverterHelper<DataServ.Loja, Loja>
                 .ConvertAParaB(ContextHelper.Contexto.Loja.AsEnumerable());
         }
 
@@ -47,14 +46,14 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Novo(Loja item, FormCollection form)
         {            
-            ContextHelper.LojaCliente.Inserir(item);
+            ContextHelper.InsertLoja(item);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Editar(Guid id)
         {
-            Loja item = ConverterHelper<PecaDicaServicos.Loja, Loja>
+            Loja item = ConverterHelper<DataServ.Loja, Loja>
                     .ConvertAParaB(ContextHelper.Contexto.Loja.Where(c => c.Id == id).FirstOrDefault());            
             return View(item);
         }
@@ -62,13 +61,13 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Editar(Loja item)
         {
-            ContextHelper.LojaCliente.Alterar(item);
+            ContextHelper.AlterarLoja(item);
             return RedirectToAction("Index");
         }
 
         public ActionResult Detalhes(Guid id)
         {
-            Loja item = ConverterHelper<PecaDicaServicos.Loja, Loja>
+            Loja item = ConverterHelper<DataServ.Loja, Loja>
                    .ConvertAParaB(ContextHelper.Contexto.Loja.Where(c => c.Id == id).FirstOrDefault());
             return View(item);
         }
@@ -76,7 +75,7 @@ namespace PecaDica.App.Controllers
         [HttpGet]
         public ActionResult Delete(Guid id)
         {
-            Loja item = ConverterHelper<PecaDicaServicos.Loja, Loja>
+            Loja item = ConverterHelper<DataServ.Loja, Loja>
                     .ConvertAParaB(ContextHelper.Contexto.Loja.Where(c => c.Id == id).FirstOrDefault());
             return View(item);
         }
@@ -84,7 +83,7 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Delete(Loja item)
         {
-            ContextHelper.LojaCliente.Deletar(item);
+            ContextHelper.DeletarLoja(item);
             return RedirectToAction("Index");
         }
     }

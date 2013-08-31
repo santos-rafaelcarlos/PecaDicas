@@ -16,6 +16,10 @@ namespace PecaDicas.Services
         {
             try
             {
+
+                if (item.Id == Guid.Empty)
+                    item.Id = Guid.NewGuid();
+
                 PersistenciaHelper.Instance.AddToCategoria(item);
                 PersistenciaHelper.Instance.SaveChanges();
             }            

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using PecaDica.App.MarcaServicos;
-using PecaDica.App.Models;
 using PecaDica.App.Common;
+using PecaDica.App.MarcaServ;
+using PecaDica.App.Models;
 
 
 namespace PecaDica.App.Controllers
@@ -18,7 +16,7 @@ namespace PecaDica.App.Controllers
         public int TamanhoDaPagina = 20;
         public ActionResult Index(int pagina = 1)
         {
-            var marcas = ConverterHelper<PecaDicaServicos.Marca, Marca>
+            var marcas = ConverterHelper<DataServ.Marca, Marca>
                      .ConvertAParaB(ContextHelper.Contexto.Marca.AsEnumerable());
 
             ListaItemViewModel<Marca>
@@ -45,14 +43,14 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Novo(Marca item)
         {           
-            ContextHelper.MarcaCliente.Inserir(item);
+            ContextHelper.InsertMarca(item);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Editar(Guid id)
         {
-            Marca item = ConverterHelper<PecaDicaServicos.Marca, Marca>
+            Marca item = ConverterHelper<DataServ.Marca, Marca>
                      .ConvertAParaB(ContextHelper.Contexto.Marca.Where(c => c.Id == id).FirstOrDefault());
 
             return View(item);
@@ -61,14 +59,14 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Editar(Marca item)
         {
-            ContextHelper.MarcaCliente.Alterar(item);
+            ContextHelper.AlterarMarca(item);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Delete(Guid id)
         {
-            Marca item = ConverterHelper<PecaDicaServicos.Marca, Marca>
+            Marca item = ConverterHelper<DataServ.Marca, Marca>
                     .ConvertAParaB(ContextHelper.Contexto.Marca.Where(c => c.Id == id).FirstOrDefault());
 
             return View(item);
@@ -77,7 +75,7 @@ namespace PecaDica.App.Controllers
         [HttpPost]
         public ActionResult Delete(Marca item)
         {
-            ContextHelper.MarcaCliente.Deletar(item);
+            ContextHelper.DeletarMarca(item);
             return RedirectToAction("Index");
         }
     }
